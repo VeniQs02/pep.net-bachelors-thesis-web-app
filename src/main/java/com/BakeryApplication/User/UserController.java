@@ -17,12 +17,12 @@ public class UserController {
 
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers(){
-        return new ResponseEntity<List<User>>(userService.allUsers(), HttpStatus.OK);
+        return new ResponseEntity<>(userService.allUsers(), HttpStatus.OK);
     }
 
     @GetMapping("/{_id}")
     public ResponseEntity<Optional<User>> getUserById(@PathVariable int _id){
-        return new ResponseEntity<Optional<User>>(userService.getUserById(_id), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getUserById(_id), HttpStatus.OK);
     }
 
 }
