@@ -1,0 +1,15 @@
+div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.SiteNotFoundMessage{
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #18181B;
+  width: 400px;
+  height: 200px;
+}

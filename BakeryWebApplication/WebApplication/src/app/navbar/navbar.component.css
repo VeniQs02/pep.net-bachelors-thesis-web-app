@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Libre+Barcode+39&family=MonteCarlo&family=Roboto:wght@100&family=Russo+One&display=swap');
+
+nav{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+h1 {
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Libre Barcode 39', system-ui;
+  font-family: 'MonteCarlo', cursive;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Russo One', sans-serif;
+  width: 200px;
+}
+
+h1 a{
+  width: 200px;
+}
+
+ul{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+}
+
+li{
+  border: 3px solid #09090B;
+  display: flex;
+  justify-content: center;
+  height: 45px;
+  margin-top: 5px;
+}
+
+a{
+
+  padding: 10px;
+  text-decoration: none;
+  color: #DDD;
+  display: block;
+  text-align: center;
+}
+
+.navButtons{
+  border-radius: 8px;
+  background: #18181B ;
+  width: 100px;
+  height: 20px;
+}
+
+.navButtons:hover, .loginButton a:hover{
+  color: #FFF;
+  font-style: italic;
+  background: #111111;
+}
+
+
+
+.loginButton a{
+  margin-top: 33px;
+  width: 60px;
+  height: 21px;
+  font-family: 'Londrina Solid', sans-serif;
+  background: #18181B ;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 880px) {
+  .hide-below-880 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .hide-below-800 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .center-below-800 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90%;
+  }
+}

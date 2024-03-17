@@ -1,0 +1,56 @@
+main{
+  min-height: 200px;
+  width: 100%;
+  left: 0;
+  position: absolute;
+}
+
+div{
+  min-width: 100%;
+  min-height: 90vh;
+  left: 0;
+  position: relative;
+}
+
+.gettingStartedDiv, .contactUsDiv, .aboutUsDiv{
+  min-height: 1fr;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+
+.gettingStartedDiv{
+  background: #470EBA;
+}
+
+.contactUsDiv{
+  background: #8075FF;
+  height: 100vh;
+}
+
+.aboutUsDiv{
+  background: #470EBA;
+  height: 100vh;
+}
+
+section{
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+a{
+  text-align: center;
+  height: 50px;
+  border-radius: 10px;
+  background: #18181B;
+  text-decoration: none;
+  color: #dddddd
+}
+
+a:hover{
+  color: #FFF;
+  font-style: italic;
+  background: #111111;
+}
