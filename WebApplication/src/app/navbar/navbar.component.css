@@ -4,6 +4,7 @@ nav{
   display: flex;
   width: 100%;
   justify-content: space-between;
+  background: #eeeeee;
 }
 
 h1 {
@@ -27,7 +28,7 @@ ul{
 }
 
 li{
-  border: 3px solid #09090B;
+  border: 3px solid #eeeeee;
   display: flex;
   justify-content: center;
   height: 45px;
@@ -38,55 +39,88 @@ a{
 
   padding: 10px;
   text-decoration: none;
-  color: #DDD;
+  color: #09090B;
   display: block;
   text-align: center;
 }
 
 .navButtons{
   border-radius: 8px;
-  background: #18181B ;
+  /*background: #afafaf ;*/
   width: 100px;
   height: 20px;
 }
 
 .navButtons:hover, .loginButton a:hover{
-  color: #FFF;
   font-style: italic;
-  background: #111111;
+  background: #dedede;
 }
-
-
 
 .loginButton a{
   margin-top: 33px;
   width: 60px;
   height: 21px;
-  font-family: 'Roboto', serif;
-  background: #18181B ;
+  /*background: #afafaf ;*/
   border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-@media screen and (max-width: 880px) {
-  .hide-below-880 {
-    display: none;
+.arrow-visible-below-570{
+  display: none;
+}
+
+@media screen and (max-width: 740px) {
+  h1{
+    width:auto;
+  }
+  h1 a{
+    width:auto;
+  }
+  ul{
+     padding-left: 0;
   }
 }
 
-@media screen and (max-width: 800px) {
-  .hide-below-800 {
-    display: none;
+@media screen and (max-width: 570px) {
+  .arrow-visible-below-570{
+    display: block;
   }
-}
-
-@media screen and (max-width: 800px) {
-  .center-below-800 {
+  nav{
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .loginButton a{
+    margin-top: 0;
+  }
+  .navbuttons-center-below-570 {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 90%;
+    width: 100%;
+  }
+  ul{
+    margin: 0;
+    padding: 0;
   }
 }
+
+/*TYPESCRIPT NEEDED CSS*/
+.collapsed {
+  display: none;
+  height: 0;
+}
+.expanded {
+  display: flex;
+  height: auto;
+}
+.rotated{
+  transform: rotate(90deg);
+}
+.arrow{
+  transition: transform 0.3s ease;
+}
+
+
+

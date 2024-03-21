@@ -44,13 +44,14 @@ a{
   text-align: center;
   height: 50px;
   border-radius: 10px;
-  background: #18181B;
+  /*background: #18181B;*/
   text-decoration: none;
-  color: #dddddd
+  color: #EEEEEE;
+  background: rgba(0, 0, 0, 0.15);
 }
 
 a:hover{
   color: #FFF;
   font-style: italic;
-  background: #111111;
+  background: rgba(0, 0, 0, 0.25)
 }

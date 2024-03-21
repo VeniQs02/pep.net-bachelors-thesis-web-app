@@ -1,14 +1,18 @@
-<nav class="center-below-800">
-  <h1 class="hide-below-800">
+<nav>
+  <h1>
     <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">pep.net</a>
   </h1>
-  <ul class="center-below-800">
-    <li><a class="navButtons" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a></li>
-    <li><a class="navButtons" routerLink="/store" routerLinkActive="active" ariaCurrentWhenActive="page">Store</a></li>
-    <li><a class="navButtons" routerLink="/help" routerLinkActive="active" ariaCurrentWhenActive="page">Help</a></li>
-    <li><a class="navButtons" routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">Contact</a></li>
+  <ul class="navbuttons-center-below-570" [class]="isCollapsed ? 'collapsed' : 'expanded'">
+    <li [class]="isCollapsed ? 'collapsed' : 'expanded'"><a class="navButtons" routerLink="/store" routerLinkActive="active" ariaCurrentWhenActive="page">Sklep</a></li>
+    <li [class]="isCollapsed ? 'collapsed' : 'expanded'"><a class="navButtons" routerLink="/help" routerLinkActive="active" ariaCurrentWhenActive="page">Pomoc</a></li>
+    <li [class]="isCollapsed ? 'collapsed' : 'expanded'"><a class="navButtons" routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">Kontakt</a></li>
   </ul>
-  <div class="loginButton hide-below-880">
-    <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Log in</a>
+  <div class="loginButton" [class]="isCollapsed ? 'collapsed' : 'expanded'">
+    <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Zaloguj</a>
+  </div>
+  <div class="arrow-visible-below-570">
+    <a href="javascript:void(0);" (click)="toggleMenu()">
+      <img src="assets/arrowIcon.svg" alt="burgerMenuIcon" width="50px" [class.rotated]="!isCollapsed" class="arrow">
+    </a>
   </div>
 </nav>

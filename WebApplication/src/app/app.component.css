@@ -3,7 +3,6 @@ body{
   margin: 20px;
 
   /*font-family: 'Londrina Solid', serif;*/
-  font-family: "Roboto", serif;
   font-size: 20px;
   color: #DDD;
 }
@@ -17,7 +16,11 @@ Indigo -
     #470EBA
 Blue -
     #8075FF
+Mąka-type-color -
+    #afafaf
 White -
     #DDDDDD
+Whiter -
+    #EEEEEE
 */
 

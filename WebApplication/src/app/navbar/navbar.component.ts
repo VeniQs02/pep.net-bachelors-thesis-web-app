@@ -9,5 +9,21 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  isCollapsed: boolean = true;
 
+  constructor() {
+    this.checkScreenWidth();
+    window.addEventListener('resize', () => {
+      this.checkScreenWidth();
+    });
+  }
+
+  toggleMenu(): void {
+    this.isCollapsed = !this.isCollapsed;
+  }
+
+  checkScreenWidth(): void {
+    const screenWidth = window.innerWidth;
+    this.isCollapsed = screenWidth < 570;
+  }
 }
