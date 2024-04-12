@@ -1,0 +1,43 @@
+section{
+  color: #18181B;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.backgroundFill{
+  background: #DDDDDD;
+  padding: 10px 40px 30px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+h2{
+  margin-left: 50px;
+  font-size: 45px;
+}
+li{
+  list-style: none;
+  margin-bottom: 10px;
+}
+p{
+  margin: 5px 0 10px;
+}
+p a{
+  text-decoration: none;
+  color: #470EBA;
+}
+p a:hover{
+  color: #8075FF;
+}
+textarea{
+  width: 100%
+}
+.material-icons{
+  padding-right: 10px;
+}
+@media screen and (max-width: 570px) {
+  ul{
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,22 @@
+<section>
+  <div class="backgroundFill">
+    <h2>Skontaktuj się z nami</h2>
+    <p>Jeśli masz jakiekolwiek pytania, śmiało skontaktuj się z nami, korzystając z poniższych informacji:</p>
+    <ul>
+      <li><i class="material-icons">signpost</i><strong>Adres:</strong> ul. Piekarnicza 123, Chlebowo</li>
+      <li><i class="material-icons">phone</i><strong>Telefon:</strong> +123 456 7890</li>
+      <li><i class="material-icons">mail</i><strong>Email:</strong> pepdotnet&commat;contact.info</li>
+    </ul>
+    <p>Sprawdź czy twojego pytania nie ma już w <a routerLink="/help" routerLinkActive="active"><strong>FAQ</strong></a>.</p>
+    <p>Możesz również skorzystać z poniższego formularza, aby bezpośrednio wysłać do nas wiadomość:</p>
+    <form action="submit.php" method="POST">
+      <label for="name">Imię:</label><br>
+      <input type="text" id="name" name="name" required><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br>
+      <label for="message">Wiadomość:</label><br>
+      <textarea id="message" name="message" rows="10" required></textarea><br>
+      <button type="submit">Wyślij wiadomość</button>
+    </form>
+  </div>
+</section>

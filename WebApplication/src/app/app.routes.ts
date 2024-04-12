@@ -1,11 +1,38 @@
-import { Routes } from '@angular/router';
-import { SiteNotFoundComponent } from './site-not-found/site-not-found.component'
-import { HomeComponent} from "./home/home.component";
+
+import {Routes} from "@angular/router";
+import {HomeComponent} from "./sites/home/home.component";
+import {ProductShopComponent} from "./sites/product-shop/product-shop.component";
+import {ContactComponent} from "./sites/contact/contact.component";
+import {HelpComponent} from "./sites/help/help.component";
+import {SiteNotFoundComponent} from "./sites/site-not-found/site-not-found.component";
+import {LoginComponent} from "./sites/login/login.component";
+import {RegisterComponent} from "./sites/register/register.component";
+
 
 export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+  },
+  {
+    path: 'product-shop',
+    component: ProductShopComponent,
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+  },
+  {
+    path: 'help',
+    component: HelpComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
   },
   {
     path: '',
@@ -15,5 +42,5 @@ export const routes: Routes = [
   {
     path: '**',
     component: SiteNotFoundComponent,
-  },
+  }
 ];
