@@ -3,8 +3,6 @@ package com.BakeryApplication.User;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Encrypted;
-
 import java.time.LocalDate;
 
 @Document(collection = "User")

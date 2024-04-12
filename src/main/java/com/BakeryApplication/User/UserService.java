@@ -27,14 +27,13 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User addUserApplyModifcations(User user){
+    public void addUserApplyModifcations(User user){
         user.setCreationDate(LocalDate.now());
         user.setRole("customer");
 
         BCryptPasswordEncoder bc = new BCryptPasswordEncoder();
         user.setPassword(bc.encode(user.getPassword()));
 
-        return user;
     }
 
     public User updateUser(String _id, Map<String, Object> updates) {
