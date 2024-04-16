@@ -36,6 +36,37 @@ textarea{
 .material-icons{
   padding-right: 10px;
 }
+input, textarea, button{
+  border: none;
+  border-radius: 8px;
+  padding: 5px;
+  margin-top: 5px;
+}
+input, button{
+  height: 20px;
+}
+button{
+  margin-top: 15px;
+  background: #EEEEEE;
+  padding: 25px 15px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+button:hover{
+  background: #afafaf;
+  color: white;
+  border: #EEEEEE 2px solid;
+  padding: 23px 13px;
+  transition: background-color 0.2s;
+}
+.material-symbols-outlined{
+  font-size: 40px;
+}
+
+
 @media screen and (max-width: 570px) {
   ul{
     padding-left: 0;

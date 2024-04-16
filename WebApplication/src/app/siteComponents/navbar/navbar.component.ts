@@ -24,6 +24,6 @@ export class NavbarComponent {
 
   checkScreenWidth(): void {
     const screenWidth = window.innerWidth;
-    this.isCollapsed = screenWidth < 570;
+    this.isCollapsed = screenWidth < 600;
   }
 }

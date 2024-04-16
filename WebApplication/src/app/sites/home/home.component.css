@@ -15,18 +15,27 @@ div{
 .gettingStartedDiv, .contactUsDiv, .aboutUsDiv{
   min-height: 1fr;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   font-size: 40px;
 }
 
+.material-symbols-outlined{
+  font-size:  30vh;
+}
 .gettingStartedDiv{
   background: #470EBA;
+}
+.crossaint{
+  rotate: 10deg;
 }
 
 .contactUsDiv{
   background: #8075FF;
   height: 100vh;
+}
+.questionMark{
+
 }
 
 .aboutUsDiv{
@@ -37,21 +46,43 @@ div{
 section{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 40px;
 }
 
 a{
   text-align: center;
-  height: 50px;
+  /*height: 50px;*/
   border-radius: 10px;
   /*background: #18181B;*/
   text-decoration: none;
   color: #EEEEEE;
   background: rgba(0, 0, 0, 0.15);
+  padding: 0 15px;
+}
+p{
+  font-size: 50px;
+}
+strong{
+  text-wrap: none;
 }
 
 a:hover{
   color: #FFF;
   font-style: italic;
-  background: rgba(0, 0, 0, 0.25)
+  background: rgba(0, 0, 0, 0.25);
+  transition: background-color 0.2s;
+
+}
+
+@media screen and (max-width: 850px){
+  .gettingStartedDiv, .contactUsDiv, .aboutUsDiv {
+    flex-direction: column-reverse;
+  }
+}
+@media screen and (max-width: 600px){
+  .material-symbols-outlined{
+    font-size:  20vh;
+  }
 }

@@ -55,6 +55,7 @@ a{
 .navButtons:hover, .loginButton a:hover{
   font-style: italic;
   background: #dedede;
+  transition: background-color 0.2s;
 }
 
 .loginButton a{
@@ -84,7 +85,7 @@ a{
   }
 }
 
-@media screen and (max-width: 570px) {
+@media screen and (max-width: 600px) {
   .arrow-visible-below-570{
     display: block;
   }
