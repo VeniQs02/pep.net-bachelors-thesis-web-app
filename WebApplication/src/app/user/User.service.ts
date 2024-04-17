@@ -17,15 +17,12 @@ export class UserService {
   }
 
   public findAll(): Observable<User[]> {
-    // Encode the username and password to Base64
     const basicAuthHeader = 'Basic ' + btoa(this.username + ':' + this.password);
 
-    // Set the Authorization header with the encoded credentials
     const headers = new HttpHeaders({
       'Authorization': basicAuthHeader
     });
 
-    // Make the HTTP request with the headers
     return this.http.get<User[]>(this.usersUrl, { headers });
   }
 

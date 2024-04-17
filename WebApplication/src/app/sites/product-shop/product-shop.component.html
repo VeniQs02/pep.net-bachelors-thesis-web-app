@@ -1,11 +1,29 @@
-<div>
+<section>
+  <div class="backgroundFill">
+    <div class="headerElements">
+      <h2>Sklep</h2>
+      <h3>Świeże pieczywo na świeży dzień</h3>
+    </div>
     <table>
       <tbody>
-      <tr *ngFor="let user of users">
-        <td>{{ user._id }}</td> <!-- Assuming _id is the user's ID property -->
-        <td>{{ user.lastName }}</td> <!-- Displaying last name -->
-        <td>{{ user.firstName }}</td> <!-- Displaying first name -->
+      <tr *ngFor="let product of products">
+        <div class="productContainer">
+          <div class="productDetails">
+            <div class="productNameNPrice">
+              <td><strong>{{ product.name }}</strong></td>
+              <td>{{ product.price | number:'1.2-2' }} <span style="font-size: 14px;">zł</span></td>
+            </div>
+            <td><strong>Opis:</strong> {{ product.description }}</td>
+            <div class="productIngredients">
+              <p><strong>Składniki:</strong></p>
+              <p *ngFor="let ingredient of product.ingredients; let last = last;">{{ ingredient }}<span *ngIf="!last">, </span></p>
+            </div>
+            <button>Dodaj do koszyka</button>
+          </div>
+          <img src="assets/PEP.PNG">
+        </div>
       </tr>
       </tbody>
     </table>
-</div>
+  </div>
+</section>

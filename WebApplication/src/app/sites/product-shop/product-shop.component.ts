@@ -1,25 +1,26 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from "@angular/common";
-import {User} from "../../user/User";
-import {UserService} from "../../user/User.service";
+import {ProductService} from "../../product/product.service";
+import {Product} from "../../product/product";
+import {RouterLink, RouterLinkActive} from "@angular/router";
 
 @Component({
   selector: 'app-product-shop',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './product-shop.component.html',
   styleUrl: './product-shop.component.css'
 })
 export class ProductShopComponent  implements OnInit{
 
-  users: User[];
+  products: Product[];
 
-  constructor(private userService: UserService) {
+  constructor(private productService: ProductService) {
   }
 
   ngOnInit() {
-    this.userService.findAll()
-      .subscribe(data => this.users = data);
+    this.productService.findAll()
+      .subscribe(data => this.products = data);
   }
 
 }
