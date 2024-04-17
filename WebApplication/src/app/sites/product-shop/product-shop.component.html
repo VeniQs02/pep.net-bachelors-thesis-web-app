@@ -1,3 +1,5 @@
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 <section>
   <div class="backgroundFill">
     <div class="headerElements">
@@ -8,17 +10,20 @@
       <tbody>
       <tr *ngFor="let product of products">
         <div class="productContainer">
-          <div class="productDetails">
-            <div class="productNameNPrice">
-              <td><strong>{{ product.name }}</strong></td>
-              <td>{{ product.price | number:'1.2-2' }} <span style="font-size: 14px;">zł</span></td>
+          <div class="productDetailsAndImage">
+            <div class="productDetails">
+              <div class="productNameNPrice">
+                <td><strong>{{ product.name }}</strong></td>
+                <td>{{ product.price | number:'1.2-2' }} <span style="font-size: 14px;">zł</span></td>
+              </div>
+              <td><strong>Opis:</strong> {{ product.description }}</td>
+              <div class="productIngredients">
+                <p><strong>Składniki:</strong></p>
+                <p *ngFor="let ingredient of product.ingredients; let last = last;">{{ ingredient }}<span *ngIf="!last">, </span>
+                </p>
+              </div>
             </div>
-            <td><strong>Opis:</strong> {{ product.description }}</td>
-            <div class="productIngredients">
-              <p><strong>Składniki:</strong></p>
-              <p *ngFor="let ingredient of product.ingredients; let last = last;">{{ ingredient }}<span *ngIf="!last">, </span></p>
-            </div>
-            <button>Dodaj do koszyka</button>
+            <button>Dodaj<span class="material-symbols-outlined">shopping_cart</span></button>
           </div>
           <img src="assets/PEP.PNG">
         </div>
