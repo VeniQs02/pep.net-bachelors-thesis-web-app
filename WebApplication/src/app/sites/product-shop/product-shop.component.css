@@ -12,10 +12,19 @@ section{
   display: flex;
   flex-direction: column;
 }
+.header{
+  display: flex;
+  justify-content: space-between;
+}
 .headerElements{
   display: flex;
   align-items: center;
   gap: 0 30px;
+}
+.headerDropdownMenu{
+  display: flex;
+  flex-direction: column-reverse;
+  margin: 0 5px 5px 0;
 }
 h2{
   margin-left: 50px;
@@ -56,6 +65,7 @@ tr{
 .productDetailsAndImage{
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   font-size: 16px;
   width: 100%;
   margin: 10px;
@@ -114,15 +124,30 @@ button:hover{
 
 
 @media screen and (max-width: 1100px){
+  .header{
+    flex-direction: column;
+  }
+  .headerDropdownMenu{
+    align-items: flex-end;
+  }
   tr{
     width: 98%;
   }
   .productDetailsAndImage{
     font-size: 10px;
   }
-
+}
+@media screen and (max-width: 800px){
   .productNameNPrice{
     font-size: 20px;
-
   }
+}
+@media screen and (max-width: 500px){
+  .backgroundFill {
+    padding: 5px 20px 15px;
+  }
+  .productNameNPrice{
+     font-size: 15px;
+  }
+
 }

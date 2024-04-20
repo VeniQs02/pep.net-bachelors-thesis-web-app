@@ -2,9 +2,18 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 <section>
   <div class="backgroundFill">
-    <div class="headerElements">
-      <h2>Sklep</h2>
-      <h3>Świeże pieczywo na świeży dzień</h3>
+    <div class="header">
+      <div class="headerElements">
+        <h2>Sklep</h2>
+        <h3>Świeże pieczywo na świeży dzień</h3>
+      </div>
+      <div class="headerDropdownMenu">
+        <form>
+          <select id="category" name="category">
+            <option *ngFor="let category of uniqueCategories" [value]="category">{{ category }}</option>
+          </select>
+        </form>
+      </div>
     </div>
     <table>
       <tbody>
