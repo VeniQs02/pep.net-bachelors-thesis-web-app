@@ -9,7 +9,7 @@
       </div>
       <div class="headerDropdownMenu">
         <form>
-          <select id="category" name="category">
+          <select id="category" name="category" #categorySelect (change)="onCategoryChange(categorySelect.value)">
             <option *ngFor="let category of uniqueCategories" [value]="category">{{ category }}</option>
           </select>
         </form>
@@ -17,7 +17,10 @@
     </div>
     <table>
       <tbody>
-      <tr *ngFor="let product of products">
+      <tr *ngIf="!products" class="loadingScreen">
+        <div>Ładowanie sklepu...</div>
+      </tr>
+      <tr *ngFor="let product of filteredProducts">
         <div class="productContainer">
           <div class="productDetailsAndImage">
             <div class="productDetails">
@@ -34,7 +37,7 @@
             </div>
             <button>Dodaj<span class="material-symbols-outlined">shopping_cart</span></button>
           </div>
-          <img src="assets/PEP.PNG" alt="product">
+          <img ngSrc="assets/PEP.PNG" alt="product" height="200" width="200">
         </div>
       </tr>
       </tbody>
