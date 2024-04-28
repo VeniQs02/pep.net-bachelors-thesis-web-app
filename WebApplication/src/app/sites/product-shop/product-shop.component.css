@@ -52,7 +52,7 @@ tr{
   flex-direction: row;
   justify-content: space-between;
   width: 48%;
-  min-height: 26vh;
+  min-height: 22vh;
   border: #DDDDDD 2px solid;
   border-radius: 8px;
   margin-top: 10px;
@@ -93,7 +93,10 @@ tr{
 
 img{
   height: 100%;
-  width: 33%;
+}
+.loadedIMG{
+  max-height: 300px;
+  width: auto;
 }
 
 .productIngredients{

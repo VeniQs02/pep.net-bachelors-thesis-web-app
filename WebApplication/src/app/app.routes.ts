@@ -7,6 +7,7 @@ import {HelpComponent} from "./sites/help/help.component";
 import {SiteNotFoundComponent} from "./sites/site-not-found/site-not-found.component";
 import {LoginComponent} from "./sites/login/login.component";
 import {RegisterComponent} from "./sites/register/register.component";
+import {CartComponent} from "./sites/cart/cart.component";
 
 
 export const routes: Routes = [
@@ -33,6 +34,10 @@ export const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
   },
   {
     path: '',

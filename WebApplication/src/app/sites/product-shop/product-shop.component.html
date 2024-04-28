@@ -9,7 +9,7 @@
       </div>
       <div class="headerDropdownMenu">
         <form>
-          <select id="category" name="category" #categorySelect (change)="onCategoryChange(categorySelect.value)">
+          <select id="category" name="category" #categorySelected (change)="onCategoryChange(categorySelected.value)">
             <option *ngFor="let category of uniqueCategories" [value]="category">{{ category }}</option>
           </select>
         </form>
@@ -35,9 +35,13 @@
                 </p>
               </div>
             </div>
-            <button>Dodaj<span class="material-symbols-outlined">shopping_cart</span></button>
+            <button (click)="addToCart(product)">Dodaj<span class="material-symbols-outlined">shopping_cart</span></button>
           </div>
-          <img ngSrc="assets/PEP.PNG" alt="product" height="200" width="200">
+          @if (+product._id<9){
+            <img class="loadedIMG" [src]="'../../../assets/breadPictures/' + product._id + '.jpg'" alt="productImage">
+          } @else {
+            <img ngSrc="../../../assets/PEPlaceholder.PNG" alt="productImage" height="200" width="200">
+          }
         </div>
       </tr>
       </tbody>

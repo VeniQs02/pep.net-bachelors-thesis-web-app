@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import {CartService} from "../../cart/cart.service";
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,7 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 export class NavbarComponent {
   isCollapsed: boolean = true;
 
-  constructor() {
+  constructor(private cartService: CartService) {
     this.checkScreenWidth();
     window.addEventListener('resize', () => {
       this.checkScreenWidth();
@@ -26,4 +27,9 @@ export class NavbarComponent {
     const screenWidth = window.innerWidth;
     this.isCollapsed = screenWidth < 600;
   }
+
+  getCartItemsNumber() :number{
+    return this.cartService.getCartItemsNumber();
+  }
+
 }

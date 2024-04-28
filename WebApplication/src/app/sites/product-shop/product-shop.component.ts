@@ -4,6 +4,7 @@ import {ProductService} from "../../product/product.service";
 import {Product} from "../../product/product";
 import {RouterLink, RouterLinkActive} from "@angular/router";
 import {FormsModule} from "@angular/forms";
+import {CartService} from "../../cart/cart.service";
 
 
 @Component({
@@ -19,7 +20,7 @@ export class ProductShopComponent implements OnInit {
   selectedCategory: string;
   filteredProducts: Product[];
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private cartService: CartService) { }
 
   ngOnInit() {
     this.productService.findAll().subscribe(data => {
@@ -48,5 +49,9 @@ export class ProductShopComponent implements OnInit {
     } else {
       this.filteredProducts = this.products.filter(product => product.category === this.selectedCategory);
     }
+  }
+
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
   }
 }

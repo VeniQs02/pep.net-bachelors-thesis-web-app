@@ -1,0 +1,26 @@
+<section>
+  <div class="backgroundFill">
+    <h2>Koszyk</h2>
+    @if(getCartItemsNumber()){
+      <ul>
+        <p>Lista:</p>
+        <li *ngFor="let product of cartItems;">
+          <div class="cartProduct">
+            <span>{{ product.name }}</span>
+            <img [src]="'../../assets/breadPictures/' + product._id + '.jpg'" alt="{{ product.name }}">
+          </div>
+          <div class="cartProductRight">
+            <span>{{ product.price }}</span>
+            <div class="cartProductButtons">
+              <button>-</button>
+              <strong>1</strong>
+              <button>+</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    }@else{
+      <p>Nic tu nie ma! Pora poszukać pieczywa</p>
+    }
+  </div>
+</section>

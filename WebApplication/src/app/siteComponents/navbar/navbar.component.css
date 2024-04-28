@@ -57,9 +57,13 @@ a{
   background: #dedede;
   transition: background-color 0.2s;
 }
+.loginButton{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .loginButton a{
-  margin-top: 33px;
   width: 60px;
   height: 21px;
   /*background: #afafaf ;*/
