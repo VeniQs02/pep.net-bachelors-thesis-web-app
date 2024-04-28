@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {ProductService} from "../product/product.service";
 import {Product} from "../product/product";
 
 @Injectable({
@@ -14,12 +13,12 @@ export class CartService {
     console.log(product)
   }
 
-  removeFromCart(index: number) {
-    this.cartItems.splice(index, 1);
-  }
-
-  updateQuantity(index: number, quantity: number) {
-  }
+  // removeFromCart(index: number) {
+  //   this.cartItems.splice(index, 1);
+  // }
+  //
+  // updateQuantity(index: number, quantity: number) {
+  // }
 
   getCartItems() {
     return this.cartItems;
@@ -29,6 +28,6 @@ export class CartService {
     return this.cartItems.length;
   }
 
-  getTotalPrice() {
-  }
+  // getTotalPrice() {
+  // }
 }
