@@ -4,17 +4,20 @@
     @if(getCartItemsNumber()){
       <ul>
         <p>Lista:</p>
-        <li *ngFor="let product of cartItems;">
+        <li *ngFor="let product of cartItems; let i = index;">
           <div class="cartProduct">
-            <span>{{ product.name }}</span>
-            <img [src]="'../../assets/breadPictures/' + product._id + '.jpg'" alt="{{ product.name }}">
+            <span>{{ product.product.name }}</span>
+            <img [src]="'../../assets/breadPictures/' + product.product._id + '.jpg'" alt="{{ product.product.name }}">
           </div>
           <div class="cartProductRight">
-            <span>{{ product.price }}</span>
+            <span>
+              <span class="cartSingularProductCost">({{product.product.price | number:'1.2-2'}}zł) </span>
+              <strong>{{ product.product.price * product.quantity | number:'1.2-2' }}zł</strong>
+            </span>
             <div class="cartProductButtons">
-              <button>-</button>
-              <strong>1</strong>
-              <button>+</button>
+              <button (click)="decreaseQuantity(i)">-</button>
+              <strong>{{product.quantity}}</strong>
+              <button (click)="increaseQuantity(i)">+</button>
             </div>
           </div>
         </li>

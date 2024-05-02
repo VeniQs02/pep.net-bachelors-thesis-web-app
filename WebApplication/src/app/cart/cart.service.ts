@@ -5,20 +5,25 @@ import {Product} from "../product/product";
   providedIn: 'root'
 })
 export class CartService {
-  cartItems: Product[] = [];
-
+  cartItems: { product: Product, quantity: number }[] = [];
 
   addToCart(product: Product): void {
-    this.cartItems.push(product);
-    console.log(product)
+    // Check if the product already exists in the cart
+    const existingItem = this.cartItems.find(item => item.product._id == product._id);
+
+    if (existingItem) {
+      existingItem.quantity++;
+    } else {
+      this.cartItems.push({ product: product, quantity: 1 });
+    }
+    this.cartItems = this.cartItems.filter(item => item.quantity > 0);
+
+    console.log(product);
   }
 
-  // removeFromCart(index: number) {
-  //   this.cartItems.splice(index, 1);
-  // }
-  //
-  // updateQuantity(index: number, quantity: number) {
-  // }
+  updateCart(updatedCartItems: { product: Product, quantity: number }[]): void {
+    this.cartItems = updatedCartItems.filter(item => item.quantity > 0);
+  }
 
   getCartItems() {
     return this.cartItems;
@@ -28,6 +33,4 @@ export class CartService {
     return this.cartItems.length;
   }
 
-  // getTotalPrice() {
-  // }
 }

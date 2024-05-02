@@ -26,7 +26,7 @@
             <div class="productDetails">
               <div class="productNameNPrice">
                 <td><strong>{{ product.name }}</strong></td>
-                <td>{{ product.price | number:'1.2-2' }} <span style="font-size: 14px;">zł</span></td>
+                <td>{{ product.price | number:'1.2-2' }}<span style="font-size: 14px;">zł</span></td>
               </div>
               <td><strong>Opis:</strong> {{ product.description }}</td>
               <div class="productIngredients">
@@ -39,9 +39,9 @@
           </div>
 <!--          tymczasowe rozwiązanie dopuki nie stworzy się więcej obrazków -->
           @if (+product._id<20){
-            <img class="loadedIMG" [src]="'../../../assets/breadPictures/' + product._id + '.jpg'" alt="productImage">
+            <img  [src]="'../../../assets/breadPictures/' + product._id + '.jpg'" [alt]="product.name">
           } @else {
-            <img ngSrc="../../../assets/PEPlaceholder.PNG" alt="productImage" height="200" width="200">
+            <img class="stillLoadedIMG" ngSrc="../../../assets/PEPlaceholder.PNG" alt="productImage" height="200" width="200">
           }
         </div>
       </tr>

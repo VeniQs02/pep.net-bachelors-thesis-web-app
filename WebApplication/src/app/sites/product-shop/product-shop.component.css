@@ -92,11 +92,9 @@ tr{
 
 
 img{
-  height: 100%;
+  width: 30%;
 }
-.loadedIMG{
-  max-height: 300px;
-  width: auto;
+.stillLoadedIMG{
 }
 
 .productIngredients{
@@ -161,6 +159,8 @@ option{
   .productDetailsAndImage{
     font-size: 10px;
   }
+  img{
+  }
 }
 @media screen and (max-width: 800px){
   .productNameNPrice{
@@ -169,10 +169,12 @@ option{
 }
 @media screen and (max-width: 500px){
   .backgroundFill {
-    padding: 5px 20px 15px;
+    padding: 5px;
   }
   .productNameNPrice{
      font-size: 15px;
   }
-
+  .headerElements{
+    gap: 10px;
+  }
 }
