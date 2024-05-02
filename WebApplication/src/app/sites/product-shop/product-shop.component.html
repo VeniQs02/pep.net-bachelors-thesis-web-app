@@ -37,7 +37,8 @@
             </div>
             <button (click)="addToCart(product)">Dodaj<span class="material-symbols-outlined">shopping_cart</span></button>
           </div>
-          @if (+product._id<9){
+<!--          tymczasowe rozwiązanie dopuki nie stworzy się więcej obrazków -->
+          @if (+product._id<20){
             <img class="loadedIMG" [src]="'../../../assets/breadPictures/' + product._id + '.jpg'" alt="productImage">
           } @else {
             <img ngSrc="../../../assets/PEPlaceholder.PNG" alt="productImage" height="200" width="200">
