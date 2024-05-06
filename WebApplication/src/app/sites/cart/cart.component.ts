@@ -35,6 +35,11 @@ export class CartComponent implements OnInit {
     return this.cartService.getCartItemsNumber();
   }
 
+  getTotalCost(): number {
+    return this.cartItems.reduce((total, item) =>
+      total + (item.product.price * item.quantity), 0);
+  }
+
   decreaseQuantity(index: number): void {
     if (this.cartItems[index].quantity > 0) {
       this.cartItems[index].quantity--;

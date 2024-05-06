@@ -47,18 +47,19 @@ input, button{
 }
 button{
   margin-top: 15px;
-  background: #EEEEEE;
+  background: #afafaf;
   padding: 25px 15px;
   font-size: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
+  border: none;
+
 }
 button:hover{
-  background: #afafaf;
-  color: white;
-  border: #EEEEEE 2px solid;
+  background: #EEEEEE;
+  border: #afafaf 2px solid;
   padding: 23px 13px;
   transition: background-color 0.2s;
 }

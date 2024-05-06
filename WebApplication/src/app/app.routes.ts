@@ -8,6 +8,7 @@ import {SiteNotFoundComponent} from "./sites/site-not-found/site-not-found.compo
 import {LoginComponent} from "./sites/login/login.component";
 import {RegisterComponent} from "./sites/register/register.component";
 import {CartComponent} from "./sites/cart/cart.component";
+import {CheckoutComponent} from "./sites/checkout/checkout.component";
 
 
 export const routes: Routes = [
@@ -38,6 +39,10 @@ export const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent,
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
   },
   {
     path: '',
