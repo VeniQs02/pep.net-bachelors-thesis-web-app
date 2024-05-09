@@ -5,9 +5,12 @@
     @if(getCartItemsNumber()){
       <ul>
         <li *ngFor="let product of cartItems; let i = index;">
-          <div class="cartProduct">
-            <span>{{ product.product.name }}</span>
-            <img [src]="'../../assets/breadPictures/' + product.product._id + '.jpg'" alt="{{ product.product.name }}">
+          <div class="cartProductLeft">
+            <div class="cartProductFrame">
+              <span>{{ product.product.name }}</span>
+              <img [src]="'../../assets/breadPictures/' + product.product._id + '.jpg'" alt="{{ product.product.name }}">
+            </div>
+            <button (click)="deleteItem(i)" class="material-symbols-outlined binIcon">delete</button>
           </div>
           <div class="cartProductRight">
             <span>
@@ -15,16 +18,16 @@
               <strong>{{ product.product.price * product.quantity | number:'1.2-2' }}zł</strong>
             </span>
             <div class="cartProductButtons">
-              <button (click)="decreaseQuantity(i)">-</button>
+              <button (click)="decreaseQuantity(i)" class="cartQuantityButton">-</button>
               <strong>{{product.quantity}}</strong>
-              <button (click)="increaseQuantity(i)">+</button>
+              <button (click)="increaseQuantity(i)" class="cartQuantityButton">+</button>
             </div>
           </div>
         </li>
       </ul>
       <section>
         <strong class="cartSum">Suma: {{ getTotalCost() | number:'1.2-2' }}zł</strong>
-        <button class="cartSumButton" routerLink="/checkout" routerLinkActive="active" ariaCurrentWhenActive="page">
+        <button class="cartSumButton" [disabled]="!getCartItemsNumber()" routerLink="/checkout" routerLinkActive="active" ariaCurrentWhenActive="page">
             <strong>Przejdź do kasy </strong>
             <span class="material-symbols-outlined">shopping_cart_checkout</span>
         </button>

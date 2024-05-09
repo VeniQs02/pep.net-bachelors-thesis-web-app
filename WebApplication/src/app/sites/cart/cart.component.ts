@@ -19,17 +19,14 @@ export class CartComponent implements OnInit {
 
   cartItems: { product: Product, quantity: number }[] = [];
 
-
-
   constructor(private cartService: CartService ) {
     this.cartItems = this.cartService.getCartItems()
 
   }
 
   ngOnInit(): void {
-    // this.testing();
+    this.testing();
   }
-
 
   getCartItemsNumber(){
     return this.cartService.getCartItemsNumber();
@@ -54,6 +51,11 @@ export class CartComponent implements OnInit {
 
   private updateCart(): void {
     this.cartService.updateCart(this.cartItems);
+  }
+
+  deleteItem(index: number): void {
+    this.cartItems.splice(index, 1);
+    this.updateCart();
   }
 
   testing(){

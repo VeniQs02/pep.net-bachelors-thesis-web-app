@@ -8,7 +8,6 @@ export class CartService {
   cartItems: { product: Product, quantity: number }[] = [];
 
   addToCart(product: Product): void {
-    // Check if the product already exists in the cart
     const existingItem = this.cartItems.find(item => item.product._id == product._id);
 
     if (existingItem) {

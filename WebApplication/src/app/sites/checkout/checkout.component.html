@@ -1,1 +1,19 @@
-<p>checkout works!</p>
+<section>
+  <div class="backgroundFill">
+    <h2>
+      Ostatni krok
+    </h2>
+    <p>Uzupełnij dane</p>
+    <form [formGroup]="profileForm">
+      <label>Imię i nazwisko</label>
+      <input type="text" formControlName="name" name="name" />
+      <label>Email</label>
+      <input type="email" formControlName="email" name="email" />
+      <label>Adres</label>
+      <input type="text" formControlName="adres" name="adres" />
+      <button [disabled]="!profileForm.valid" (click)="buyProducts()">Przejdź do płatności</button>
+    </form>
+    <p>Do zapłaty: {{ getTotalCost() }}</p>
+  </div>
+  <img ngSrc="assets/deliveryTruck.png" alt="delivery truck" height="588" width="668">
+</section>
