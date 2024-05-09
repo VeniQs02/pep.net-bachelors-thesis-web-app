@@ -13,7 +13,7 @@
       <input type="text" formControlName="adres" name="adres" />
       <button [disabled]="!profileForm.valid" (click)="buyProducts()">Przejdź do płatności</button>
     </form>
-    <p>Do zapłaty: {{ getTotalCost() }}</p>
+    <p>Do zapłaty: {{ getTotalCost() | number:'1.2-2'}}zł</p>
   </div>
   <img ngSrc="assets/deliveryTruck.png" alt="delivery truck" height="588" width="668">
 </section>

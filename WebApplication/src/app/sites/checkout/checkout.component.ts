@@ -2,12 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {CartService} from "../../cart/cart.service";
 import {Product} from "../../product/product";
 import {FormGroup, FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
-import {NgOptimizedImage} from "@angular/common";
+import {DecimalPipe, NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [ReactiveFormsModule, NgOptimizedImage],
+  imports: [ReactiveFormsModule, NgOptimizedImage, DecimalPipe],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.css'
 })
