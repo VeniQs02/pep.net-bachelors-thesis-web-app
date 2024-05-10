@@ -4,7 +4,7 @@ section{
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10%;
+gap: 10%;
 }
 .backgroundFill{
   background: #DDDDDD;

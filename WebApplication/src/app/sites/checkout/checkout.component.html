@@ -10,7 +10,7 @@
       <label>Email</label>
       <input type="email" formControlName="email" name="email" />
       <label>Adres</label>
-      <input type="text" formControlName="adres" name="adres" />
+      <input type="text" formControlName="address" name="address" />
       <button [disabled]="!profileForm.valid" (click)="buyProducts()">Przejdź do płatności</button>
     </form>
     <p>Do zapłaty: {{ getTotalCost() | number:'1.2-2'}}zł</p>

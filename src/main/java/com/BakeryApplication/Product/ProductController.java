@@ -1,6 +1,5 @@
 package com.BakeryApplication.Product;
 
-import com.BakeryApplication.User.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,18 +20,18 @@ public class ProductController {
         return new ResponseEntity<>(productService.allProducts(), HttpStatus.OK);
     }
     @GetMapping("/{_id}")
-    public ResponseEntity<Optional<Product>> getUserById(@PathVariable String _id){
+    public ResponseEntity<Optional<Product>> getProductById(@PathVariable String _id){
         return new ResponseEntity<>(productService.getProductById(_id), HttpStatus.OK);
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Product> addUser(@RequestBody Product product){
+    public ResponseEntity<Product> addProduct(@RequestBody Product product){
         Product newProduct = productService.addProduct(product);
         return new ResponseEntity<>(newProduct, HttpStatus.CREATED);
     }
 
     @PutMapping("/update/{_id}")
-    public ResponseEntity<Product> updateUser(@RequestBody Map<String, Object> updates, @PathVariable String _id) {
+    public ResponseEntity<Product> updateProduct(@RequestBody Map<String, Object> updates, @PathVariable String _id) {
         Product updatedProduct = productService.updateProduct(_id, updates);
         if (updatedProduct != null) {
             return new ResponseEntity<>(updatedProduct, HttpStatus.OK);
@@ -42,7 +41,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/delete/{_id}")
-    public ResponseEntity<?> deleteUser(@PathVariable String _id){
+    public ResponseEntity<?> deleteProduct(@PathVariable String _id){
         productService.deleteProduct(_id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

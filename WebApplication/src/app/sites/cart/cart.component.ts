@@ -25,7 +25,7 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.testing();
+    this.testing(); // on every cart boot, it adds manually a few items to the cart
   }
 
   getCartItemsNumber(){
