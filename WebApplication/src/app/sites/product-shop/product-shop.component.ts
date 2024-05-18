@@ -26,7 +26,7 @@ export class ProductShopComponent implements OnInit {
     this.productService.findAll().subscribe(data => {
       this.products = data;
       this.getUniqueCategories();
-      this.selectedCategory = 'Wszystko'; // Set default category
+      this.selectedCategory = 'Wszystko';
       this.filterProducts();
     });
   }

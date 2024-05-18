@@ -9,6 +9,7 @@ import {LoginComponent} from "./sites/login/login.component";
 import {RegisterComponent} from "./sites/register/register.component";
 import {CartComponent} from "./sites/cart/cart.component";
 import {CheckoutComponent} from "./sites/checkout/checkout.component";
+import {ThankYouPageComponent} from "./sites/thank-you-page/thank-you-page.component";
 
 
 export const routes: Routes = [
@@ -43,6 +44,10 @@ export const routes: Routes = [
   {
     path: 'checkout',
     component: CheckoutComponent,
+  },
+  {
+    path: 'thankYou',
+    component: ThankYouPageComponent,
   },
   {
     path: '',

@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -31,8 +30,8 @@ public class ProductController {
     }
 
     @PutMapping("/update/{_id}")
-    public ResponseEntity<Product> updateProduct(@RequestBody Map<String, Object> updates, @PathVariable String _id) {
-        Product updatedProduct = productService.updateProduct(_id, updates);
+    public ResponseEntity<Product> updateProduct(@RequestBody Product product, @PathVariable String _id) {
+        Product updatedProduct = productService.updateProduct(_id, product);
         if (updatedProduct != null) {
             return new ResponseEntity<>(updatedProduct, HttpStatus.OK);
         } else {

@@ -49,14 +49,14 @@ public class UserService {
                     case "role":
                         existingUser.setRole((String) value);
                         break;
-                    case "firstName":
-                        existingUser.setFirstName((String) value);
+                    case "name":
+                        existingUser.setName((String) value);
                         break;
-                    case "lastName":
-                        existingUser.setLastName((String) value);
+                    case "email":
+                        existingUser.setEmail((String) value);
                         break;
-                    case "username":
-                        existingUser.setUsername((String) value);
+                    case "address":
+                        existingUser.setAddress((String) value);
                         break;
                     case "password":
                         BCryptPasswordEncoder bc = new BCryptPasswordEncoder();

@@ -12,9 +12,9 @@ public class User {
     String _id;
     LocalDate creationDate;
     String role;
-    String firstName;
-    String lastName;
-    String username;
+    String name;
+    String email;
+    String address;
     String password;
     String phoneNumber;
 }
