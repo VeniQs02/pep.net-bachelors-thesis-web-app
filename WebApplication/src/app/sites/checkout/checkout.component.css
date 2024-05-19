@@ -4,7 +4,7 @@ section{
   display: flex;
   justify-content: center;
   align-items: center;
-gap: 10%;
+  gap: 10%;
 }
 .backgroundFill{
   background: #DDDDDD;
@@ -60,7 +60,7 @@ button:hover{
   transition: background-color 0.2s;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 830px){
   section{
     flex-direction: column;
     gap: 30px;

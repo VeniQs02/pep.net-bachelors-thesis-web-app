@@ -1,0 +1,35 @@
+section{
+  color: #18181B;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.backgroundFill{
+  background: #DDDDDD;
+  padding: 10px 40px 30px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+h2{
+  font-size: 45px;
+}
+img{
+  max-width: 500px;
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: #eeeeee 10px 10px 5px, #eeeeee -10px -10px 5px, #eeeeee -10px 10px 5px, #eeeeee 10px -10px 5px;
+}
+
+@media screen and (max-width: 600px){
+  h2{
+    font-size: 30px;
+  }
+  img{
+    width: 60%;
+  }
+}

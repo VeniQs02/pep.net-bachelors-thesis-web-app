@@ -34,6 +34,7 @@ public class OrderService {
                 if (databaseProductQuantity >= orderProductQuantity) {
                     databaseProduct.setStock(databaseProductQuantity - orderProductQuantity);
                     productService.updateProduct(databaseProduct.get_id(), databaseProduct);
+                    System.out.println("Order completed!");
                 } else {
                     throw new IllegalArgumentException("Insufficient stock for product ID: " + productId);
                 }
