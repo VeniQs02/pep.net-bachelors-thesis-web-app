@@ -45,8 +45,10 @@ export class CartComponent implements OnInit {
   }
 
   increaseQuantity(index: number): void {
-    this.cartItems[index].quantity++;
-    this.updateCart();
+    if (this.cartItems[index].quantity < this.cartItems[index].product.stock) {
+      this.cartItems[index].quantity++;
+      this.updateCart();
+    }
   }
 
   private updateCart(): void {

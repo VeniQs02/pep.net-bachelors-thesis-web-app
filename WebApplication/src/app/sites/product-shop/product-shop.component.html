@@ -1,5 +1,4 @@
-<link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 <section>
   <div class="backgroundFill">
     <div class="header">
@@ -21,7 +20,7 @@
         <div>Ładowanie sklepu...</div>
       </tr>
       <tr *ngFor="let product of filteredProducts">
-        <div class="productContainer">
+        <div class="productContainer" [ngClass]="{'out-of-stock': isOutOfStock(product)}">
           <div class="productDetailsAndImage">
             <div class="productDetails">
               <div class="productNameNPrice">
@@ -34,15 +33,13 @@
                 <p *ngFor="let ingredient of product.ingredients; let last = last;">{{ ingredient }}<span *ngIf="!last">, </span>
                 </p>
               </div>
+              @if(isOutOfStock(product)){<h4>Produkt niedostępny!</h4>}
             </div>
-            <button (click)="addToCart(product)">Dodaj<span class="material-symbols-outlined">shopping_cart</span></button>
+            <button (click)="addToCart(product)" [disabled]="isOutOfStock(product)">Dodaj<span class="material-symbols-outlined">shopping_cart</span></button>
           </div>
-<!--          tymczasowe rozwiązanie dopuki nie stworzy się więcej obrazków -->
-          @if (+product._id<21){
-            <img  [src]="'../../../assets/breadPictures/' + product._id + '.jpg'" [alt]="product.name">
-          } @else {
-            <img class="stillLoadedIMG" ngSrc="../../../assets/PEPlaceholder.PNG" alt="productImage" height="200" width="200">
-          }
+          <img  [src]="'../../../assets/breadPictures/' + product._id + '.jpg'" [alt]="product.name">
+          <!--      IMAGE PLACEHOLDER CODE    @if (+product._id<21){} @else {-->
+          <!--            <img class="stillLoadedIMG" ngSrc="../../../assets/PEPlaceholder.PNG" alt="productImage" height="200" width="200">-->
         </div>
       </tr>
       </tbody>

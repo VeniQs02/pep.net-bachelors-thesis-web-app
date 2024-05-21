@@ -22,7 +22,7 @@ export class ProductShopComponent implements OnInit {
 
   constructor(private productService: ProductService, private cartService: CartService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.productService.findAll().subscribe(data => {
       this.products = data;
       this.getUniqueCategories();
@@ -31,19 +31,19 @@ export class ProductShopComponent implements OnInit {
     });
   }
 
-  getUniqueCategories() {
+  getUniqueCategories(): void {
     const categoriesSet = new Set<string>();
     this.products.forEach(product => categoriesSet.add(product.category));
     this.uniqueCategories = Array.from(categoriesSet);
     this.uniqueCategories.push("Wszystko");
   }
 
-  onCategoryChange(category: string) {
+  onCategoryChange(category: string): void {
     this.selectedCategory = category;
     this.filterProducts();
   }
 
-  filterProducts() {
+  filterProducts(): void {
     if (this.selectedCategory === 'Wszystko') {
       this.filteredProducts = this.products; // Show all products
     } else {
@@ -51,7 +51,12 @@ export class ProductShopComponent implements OnInit {
     }
   }
 
-  addToCart(product: Product) {
+  isOutOfStock(product: Product): boolean {
+    const cartItem = this.cartService.cartItems.find(item => item.product._id === product._id);
+    return <boolean>(product.stock === 0 || (cartItem && cartItem.quantity >= product.stock));
+  }
+
+  addToCart(product: Product): void {
     this.cartService.addToCart(product);
   }
 }

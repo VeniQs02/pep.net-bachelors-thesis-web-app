@@ -74,6 +74,10 @@ button{
   border: none;
   border-radius: 8px;
 }
+button:disabled{
+  background-color: #EEEEEE;
+  transition: background-color 0.5s;
+}
 .cartQuantityButton{
   width: 50px;
   height: 50px;

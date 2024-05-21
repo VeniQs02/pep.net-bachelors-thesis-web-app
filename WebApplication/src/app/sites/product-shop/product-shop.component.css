@@ -94,7 +94,16 @@ tr{
 img{
   width: 30%;
 }
-.stillLoadedIMG{
+
+.productContainer.out-of-stock {
+  background-color: #DDDDDD;
+  border-radius: 8px;
+  transition: background-color 0.5s;
+}
+
+.productContainer button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 .productIngredients{

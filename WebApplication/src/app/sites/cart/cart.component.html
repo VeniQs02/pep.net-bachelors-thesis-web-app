@@ -4,23 +4,23 @@
     <h2>Koszyk</h2>
     @if(getCartItemsNumber()){
       <ul>
-        <li *ngFor="let product of cartItems; let i = index;">
+        <li *ngFor="let cartItem of cartItems; let i = index;">
           <div class="cartProductLeft">
             <div class="cartProductFrame">
-              <span>{{ product.product.name }}</span>
-              <img [src]="'../../assets/breadPictures/' + product.product._id + '.jpg'" alt="{{ product.product.name }}">
+              <span>{{ cartItem.product.name }}</span>
+              <img [src]="'../../assets/breadPictures/' + cartItem.product._id + '.jpg'" alt="{{ cartItem.product.name }}">
             </div>
             <button (click)="deleteItem(i)" class="material-symbols-outlined binIcon">delete</button>
           </div>
           <div class="cartProductRight">
             <span>
-              <span class="cartSingularProductCost">({{product.product.price | number:'1.2-2'}}zł) </span>
-              <strong>{{ product.product.price * product.quantity | number:'1.2-2' }}zł</strong>
+              <span class="cartSingularProductCost">({{cartItem.product.price | number:'1.2-2'}}zł) </span>
+              <strong>{{ cartItem.product.price * cartItem.quantity | number:'1.2-2' }}zł</strong>
             </span>
             <div class="cartProductButtons">
-              <button (click)="decreaseQuantity(i)" class="cartQuantityButton">-</button>
-              <strong>{{product.quantity}}</strong>
-              <button (click)="increaseQuantity(i)" class="cartQuantityButton">+</button>
+              <button (click)="decreaseQuantity(i)" class="cartQuantityButton" [disabled]="cartItem.quantity === 0">-</button>
+              <strong>{{ cartItem.quantity }}</strong>
+              <button (click)="increaseQuantity(i)" class="cartQuantityButton" [disabled]="cartItem.quantity >= cartItem.product.stock">+</button>
             </div>
           </div>
         </li>
@@ -28,8 +28,8 @@
       <section>
         <strong class="cartSum">Suma: {{ getTotalCost() | number:'1.2-2' }}zł</strong>
         <button class="cartSumButton" [disabled]="!getCartItemsNumber()" routerLink="/checkout" routerLinkActive="active" ariaCurrentWhenActive="page">
-            <strong>Przejdź do kasy </strong>
-            <span class="material-symbols-outlined">shopping_cart_checkout</span>
+          <strong>Przejdź do kasy </strong>
+          <span class="material-symbols-outlined">shopping_cart_checkout</span>
         </button>
       </section>
     }@else{
