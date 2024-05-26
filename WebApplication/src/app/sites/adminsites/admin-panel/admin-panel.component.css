@@ -45,16 +45,29 @@ button:hover{
   transition: background-color 0.2s;
 }
 
+.adminProductsBackground{
+  background-color: #EEEEEE;
+  border-radius: 8px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
 
 .adminProductContainer {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  height: 100px;
+  width: 47%;
+  min-height: 22vh;
+  border: #DDDDDD 2px solid;
+  border-radius: 8px;
+  margin: 10px;
+  background-color: #EEEEEE;
 }
 
 .adminProductContainer img {
-  width: 50px;
-  height: 50px;
+  height: 100px;
+  width: auto;
   margin-right: 10px;
   cursor: pointer;
 }

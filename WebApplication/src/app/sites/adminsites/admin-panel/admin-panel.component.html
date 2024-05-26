@@ -12,11 +12,14 @@
         </select>
       </form>
     </div>
-    <div *ngIf="!products" class="loadingScreen">Ładowanie sklepu...</div>
-    <div *ngFor="let product of filteredProducts" class="adminProductContainer">
-      <img [src]="'../../../assets/breadPictures/' + product._id + '.jpg'" [alt]="product.name" (click)="openEditPopup(product)">
-      <p>{{ product.name }}</p>
+    <div class="adminProductsBackground">
+      <div *ngIf="!products" class="loadingScreen">Ładowanie produktów...</div>
+      <div *ngFor="let product of filteredProducts" class="adminProductContainer">
+        <img [src]="'../../../assets/breadPictures/' + product._id + '.jpg'" [alt]="product.name" (click)="openEditPopup(product)">
+        <p>{{ product.name }}</p>
+      </div>
     </div>
+
   </div>
 
   <div *ngIf="selectedProduct" class="editPopup">
