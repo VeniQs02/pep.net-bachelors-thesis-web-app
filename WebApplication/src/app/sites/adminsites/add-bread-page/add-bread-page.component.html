@@ -1,0 +1,10 @@
+<form (ngSubmit)="onSubmit()">
+  <!-- form fields for product properties -->
+  <input [(ngModel)]="newProduct.name" name="name" placeholder="Name">
+  <input [(ngModel)]="newProduct.description" name="description" placeholder="Description">
+  <input [(ngModel)]="newProduct.price" name="price" type="number" placeholder="Price">
+  <input [(ngModel)]="newProduct.stock" name="stock" type="number" placeholder="Stock">
+  <input [(ngModel)]="newProduct.category" name="category" placeholder="Category">
+  <input [(ngModel)]="ingredientsInput" name="ingredients" placeholder="Ingredients (comma separated)">
+  <button type="submit">Add Product</button>
+</form>

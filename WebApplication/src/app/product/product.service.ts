@@ -12,15 +12,17 @@ export class ProductService {
   private readonly productsUrl: string;
   private username: string = 'adminadmin';
   private password: string = '123321';
+  private basicAuthHeader: string;
 
   constructor(private http: HttpClient) {
     this.productsUrl = 'http://localhost:8080/api/products';
+    this.basicAuthHeader = 'Basic ' + btoa(this.username + ':' + this.password);
+
   }
   public findAll(): Observable<Product[]> {
-    const basicAuthHeader = 'Basic ' + btoa(this.username + ':' + this.password);
 
     const headers = new HttpHeaders({
-      'Authorization': basicAuthHeader
+      'Authorization': this.basicAuthHeader
     });
 
     return this.http.get<Product[]>(this.productsUrl, { headers });
@@ -28,12 +30,24 @@ export class ProductService {
 
   public updateProduct(product: Product): Observable<Product> {
     const url = `${this.productsUrl}/update/${product._id}`;
-    const basicAuthHeader = 'Basic ' + btoa(this.username + ':' + this.password);
 
     return this.http.put<Product>(url, product, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': basicAuthHeader
+        'Authorization': this.basicAuthHeader
+      })
+    }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  public addProduct(product: Product): Observable<Product> {
+    const url = `${this.productsUrl}/add`;
+
+    return this.http.post<Product>(url, product, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': this.basicAuthHeader
       })
     }).pipe(
       catchError(this.handleError)
@@ -49,4 +63,6 @@ export class ProductService {
     }
     return throwError(errorMessage);
   }
+
+
 }
