@@ -3,11 +3,12 @@ import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {Product} from "../../../product/product";
 import {ProductService} from "../../../product/product.service";
+import {RouterLink, RouterLinkActive} from "@angular/router";
 
 @Component({
   selector: 'app-admin-panel',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive],
   templateUrl: './admin-panel.component.html',
   styleUrl: './admin-panel.component.css'
 })
