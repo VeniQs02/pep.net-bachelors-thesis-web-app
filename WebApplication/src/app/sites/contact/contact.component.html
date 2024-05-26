@@ -17,9 +17,13 @@
       <input type="email" formControlName="email" name="email"/><br>
       <label>Wiadomość</label><br>
       <textarea id="message" formControlName="message" rows="10"></textarea><br>
-      <button (click)="send()" [disabled]="!profileForm.valid">
-        Wyślij<span class="material-symbols-outlined">send</span>
-      </button>
+      <div class="sentArea">
+        <button (click)="send()" [disabled]="!profileForm.valid">
+          Wyślij<span class="material-symbols-outlined">send</span>
+        </button>
+        <p [ngClass]="(sent)?'displayed': 'notDisplayed'"><strong>Wiadomość została wysłana!</strong></p>
+      </div>
+
     </form>
   </div>
 </section>

@@ -66,6 +66,22 @@ button:hover{
 .material-symbols-outlined{
   font-size: 40px;
 }
+.sentArea{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5%;
+}
+.sentArea p{
+  color: green;
+  margin-top: 20px;
+}
+.displayed{
+  display: block;
+}
+.notDisplayed{
+   display: none;
+}
 
 
 @media screen and (max-width: 570px) {
