@@ -13,6 +13,7 @@ import {ThankYouPageComponent} from "./sites/thank-you-page/thank-you-page.compo
 import {AdminPanelComponent} from "./sites/adminsites/admin-panel/admin-panel.component";
 import {MessagesComponent} from "./sites/adminsites/messages/messages.component";
 import {OrdersComponent} from "./sites/adminsites/orders/orders.component";
+import {AddBreadPageComponent} from "./sites/add-bread-page/add-bread-page.component";
 
 
 export const routes: Routes = [
@@ -63,6 +64,10 @@ export const routes: Routes = [
   {
     path: 'adminOrders',
     component: OrdersComponent,
+  },
+  {
+    path: 'addBread',
+    component: AddBreadPageComponent,
   },
   {
     path: '',

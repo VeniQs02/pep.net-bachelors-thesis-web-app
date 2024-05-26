@@ -1,10 +1,12 @@
 <section>
   <div class="backgroundFill">
-    <h2>Panel administratora</h2>
+    <h2>Panel zarządzania sklepem</h2>
     <div class="adminButtons">
-      <button routerLink="/adminMessages" routerLinkActive="active" ariaCurrentWhenActive="page">messages</button>
-      <button routerLink="/adminOrders" routerLinkActive="active" ariaCurrentWhenActive="page">orders</button>
+      <button routerLink="/adminMessages" routerLinkActive="active" ariaCurrentWhenActive="page">WIADOMOŚCI</button>
+      <button routerLink="/adminOrders" routerLinkActive="active" ariaCurrentWhenActive="page">ZAMÓWIENIA</button>
     </div>
+    <button routerLink="/addBread" routerLinkActive="active" ariaCurrentWhenActive="page">DODAJ WYPIEK</button>
+
     <div class="headerDropdownMenu">
       <form>
         <select id="category" name="category" #categorySelected (change)="onCategoryChange(categorySelected.value)">
@@ -14,8 +16,8 @@
     </div>
     <div class="adminProductsBackground">
       <div *ngIf="!products" class="loadingScreen">Ładowanie produktów...</div>
-      <div *ngFor="let product of filteredProducts" class="adminProductContainer">
-        <img [src]="'../../../assets/breadPictures/' + product._id + '.jpg'" [alt]="product.name" (click)="openEditPopup(product)">
+      <div *ngFor="let product of filteredProducts" class="adminProductContainer" (click)="openEditPopup(product)">
+        <img [src]="'../../../assets/breadPictures/' + product._id + '.jpg'" [alt]="product.name" >
         <p>{{ product.name }}</p>
       </div>
     </div>
