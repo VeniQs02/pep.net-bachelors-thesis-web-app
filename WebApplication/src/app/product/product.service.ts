@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Observable, throwError} from "rxjs";
 import {Product} from "./product";
+import {catchError} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,29 @@ export class ProductService {
     });
 
     return this.http.get<Product[]>(this.productsUrl, { headers });
+  }
+
+  public updateProduct(product: Product): Observable<Product> {
+    const url = `${this.productsUrl}/update/${product._id}`;
+    const basicAuthHeader = 'Basic ' + btoa(this.username + ':' + this.password);
+
+    return this.http.put<Product>(url, product, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': basicAuthHeader
+      })
+    }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  private handleError(error: any) {
+    let errorMessage: string;
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = 'Error: ' + error.error.message;
+    } else {
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    return throwError(errorMessage);
   }
 }

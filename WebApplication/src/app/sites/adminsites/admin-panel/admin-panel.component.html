@@ -1,3 +1,41 @@
-<p>admin-panel works!</p>
-<a routerLink="/adminMessages" routerLinkActive="active" ariaCurrentWhenActive="page">messages</a>
-<a routerLink="/adminOrders" routerLinkActive="active" ariaCurrentWhenActive="page">orders</a>
+<section>
+  <div class="backgroundFill">
+    <h2>Panel administratora</h2>
+    <div class="adminButtons">
+      <button routerLink="/adminMessages" routerLinkActive="active" ariaCurrentWhenActive="page">messages</button>
+      <button routerLink="/adminOrders" routerLinkActive="active" ariaCurrentWhenActive="page">orders</button>
+    </div>
+    <div class="headerDropdownMenu">
+      <form>
+        <select id="category" name="category" #categorySelected (change)="onCategoryChange(categorySelected.value)">
+          <option *ngFor="let category of uniqueCategories" [value]="category">{{ category }}</option>
+        </select>
+      </form>
+    </div>
+    <div *ngIf="!products" class="loadingScreen">Ładowanie sklepu...</div>
+    <div *ngFor="let product of filteredProducts" class="adminProductContainer">
+      <img [src]="'../../../assets/breadPictures/' + product._id + '.jpg'" [alt]="product.name" (click)="openEditPopup(product)">
+      <p>{{ product.name }}</p>
+    </div>
+  </div>
+
+  <div *ngIf="selectedProduct" class="editPopup">
+    <div class="popupContent">
+      <h3>Edytuj produkt</h3>
+      <label>Nazwa</label>
+      <input [(ngModel)]="selectedProduct.name">
+      <label>Opis</label>
+      <input [(ngModel)]="selectedProduct.description">
+      <label>Cena</label>
+      <input [(ngModel)]="selectedProduct.price" type="number">
+      <label>Składniki</label>
+      <input [(ngModel)]="ingredientsInput">
+      <label>Stock</label>
+      <input [(ngModel)]="selectedProduct.stock" type="number">
+      <div class="adminButtons">
+        <button (click)="saveProduct()">Zapisz</button>
+        <button (click)="closeEditPopup()">Anuluj</button>
+      </div>
+    </div>
+  </div>
+</section>

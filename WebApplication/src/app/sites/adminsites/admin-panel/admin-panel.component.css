@@ -1,0 +1,84 @@
+section{
+  color: #18181B;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.backgroundFill{
+  background: #DDDDDD;
+  padding: 10px 40px 30px;
+  width: 90vw;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h2{
+  font-size: 45px;
+}
+p{
+  margin: 5px 0 10px;
+}
+.adminButtons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+button{
+  height: 20px;
+  margin-top: 15px;
+  background: #afafaf;
+  padding: 25px 15px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border: none;
+  border-radius: 8px;
+}
+button:hover{
+  background: #EEEEEE;
+  border: #afafaf 2px solid;
+  padding: 23px 13px;
+  transition: background-color 0.2s;
+}
+
+
+.adminProductContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.adminProductContainer img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.editPopup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.popupContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.popupContent label, .popupContent input, .popupContent button {
+  margin-bottom: 10px;
+}
+
+.popupContent button {
+  align-self: flex-end;
+}

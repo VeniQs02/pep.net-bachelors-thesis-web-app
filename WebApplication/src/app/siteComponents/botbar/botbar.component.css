@@ -1,9 +1,8 @@
 footer{
-  background: #afafaf
-;
+  background: #afafaf;
   height: 40px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   color: #DDDDDD;
   position: fixed;
@@ -11,10 +10,18 @@ footer{
   left: 0;
   width: 100%;
 }
-
+p{
+  margin-right: 10px;
+}
 a{
   text-decoration: none;
   color: #222;
+}
+.visible{
+  visibility: visible;
+}
+.invisible{
+  visibility: collapse;
 }
 a:hover{
   color: #666;
