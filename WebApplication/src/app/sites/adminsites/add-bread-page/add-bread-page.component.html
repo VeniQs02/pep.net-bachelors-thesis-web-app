@@ -2,28 +2,34 @@
   <div class="backgroundFill">
     <h2>Dodaj produkt</h2>
     <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+      <label>Nazwa</label>
       <input formControlName="name" name="name" placeholder="Nazwa">
       <div *ngIf="addProductForm.controls['name'].invalid && addProductForm.controls['name'].touched" class="error">
         Nazwa jest wymagana.
       </div>
+      <label>Opis</label>
       <input formControlName="description" name="description" placeholder="Opis">
       <div *ngIf="addProductForm.controls['description'].invalid && addProductForm.controls['description'].touched" class="error">
         Opis jest wymagany.
       </div>
+      <label>Cena</label>
       <input formControlName="price" name="price" type="number" placeholder="Cena">
       <div *ngIf="addProductForm.controls['price'].invalid && addProductForm.controls['price'].touched" class="error">
         Cena musi być większa lub równa 0.
       </div>
+      <label>Liczba sztuk</label>
       <input formControlName="stock" name="stock" type="number" placeholder="Ilość produktu">
       <div *ngIf="addProductForm.controls['stock'].invalid && addProductForm.controls['stock'].touched" class="error">
         Ilość produktu musi być większa lub równa 0.
       </div>
+      <label>Kategoria</label>
       <select formControlName="category" name="category">
         <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
       </select>
       <div *ngIf="addProductForm.controls['category'].invalid && addProductForm.controls['category'].touched" class="error">
         Wybierz kategorię.
       </div>
+      <label>Składniki</label>
       <input formControlName="ingredients" name="ingredients" placeholder="Składniki (oddzielone przecinkami)">
       <div *ngIf="addProductForm.controls['ingredients'].invalid && addProductForm.controls['ingredients'].touched" class="error">
         Składniki są wymagane.

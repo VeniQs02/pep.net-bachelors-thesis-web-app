@@ -54,8 +54,15 @@ button{
 button:hover{
   background: #EEEEEE;
   border: #afafaf 2px solid;
-  padding: 23px 13px;
+  padding: 24px 14px;
   transition: background-color 0.2s;
+}
+
+.saveButton{
+  background-color: rgba(0, 128, 0, 40%);
+}
+.deleteButton{
+  background-color: rgba(255, 0, 0, 40%);
 }
 
 .adminProductsBackground{

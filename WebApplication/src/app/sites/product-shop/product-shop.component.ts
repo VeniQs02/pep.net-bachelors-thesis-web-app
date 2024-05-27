@@ -35,7 +35,7 @@ export class ProductShopComponent implements OnInit {
     const categoriesSet = new Set<string>();
     this.products.forEach(product => categoriesSet.add(product.category));
     this.uniqueCategories = Array.from(categoriesSet);
-    this.uniqueCategories.push("Wszystko");
+    this.uniqueCategories.unshift("Wszystko");
   }
 
   onCategoryChange(category: string): void {

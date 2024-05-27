@@ -36,7 +36,7 @@ export class AdminPanelComponent implements OnInit {
     const categoriesSet = new Set<string>();
     this.products.forEach(product => categoriesSet.add(product.category));
     this.uniqueCategories = Array.from(categoriesSet);
-    this.uniqueCategories.push("Wszystko");
+    this.uniqueCategories.unshift("Wszystko");
   }
 
   onCategoryChange(category: string): void {
@@ -80,6 +80,21 @@ export class AdminPanelComponent implements OnInit {
         this.filterProducts();
         this.closeEditPopup();
       });
+    }
+  }
+
+  deleteProduct(): void {
+    if (this.selectedProduct) {
+      this.productService.deleteProduct(this.selectedProduct._id).subscribe(
+        () => {
+          this.products = this.products.filter(p => p._id !== this.selectedProduct!._id);
+          this.filteredProducts = this.products.filter(product => product.category === this.selectedProduct!.category);
+          this.selectedProduct = null;
+        },
+        error => {
+          this.errorMessage = 'Błąd podczas usuwania produktu.';
+        }
+      );
     }
   }
 }

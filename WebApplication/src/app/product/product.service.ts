@@ -58,6 +58,17 @@ export class ProductService {
     );
   }
 
+  public deleteProduct(productId: string): Observable<void> {
+    const url = `${this.productsUrl}/delete/${productId}`;
+    return this.http.delete<void>(url, {
+      headers: new HttpHeaders({
+        'Authorization': this.basicAuthHeader
+      })
+    }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(error: any) {
     let errorMessage: string;
     if (error.error instanceof ErrorEvent) {

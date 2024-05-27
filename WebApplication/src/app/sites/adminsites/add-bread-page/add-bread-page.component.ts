@@ -23,7 +23,7 @@ export class AddBreadPageComponent implements OnInit {
   categories: string[] = [];
   sent: boolean = false;
 
-  constructor(private fb: FormBuilder, private productService: ProductService, private router: Router) {
+  constructor(private fb: FormBuilder, private productService: ProductService) {
     this.addProductForm = this.fb.group({
       name: ['', Validators.required],
       description: ['', Validators.required],

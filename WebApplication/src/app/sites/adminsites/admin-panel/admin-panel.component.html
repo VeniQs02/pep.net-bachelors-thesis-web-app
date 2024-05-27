@@ -41,8 +41,9 @@
       <input [(ngModel)]="selectedProduct.stock" type="number">
       <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
       <div class="adminButtons">
-        <button (click)="saveProduct()">Zapisz</button>
+        <button class="saveButton" (click)="saveProduct()">Zapisz</button>
         <button (click)="closeEditPopup()">Anuluj</button>
+        <button class="deleteButton" (click)="deleteProduct()">Usuń</button>
       </div>
     </div>
   </div>

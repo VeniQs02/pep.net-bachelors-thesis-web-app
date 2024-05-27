@@ -55,7 +55,7 @@ tr{
   min-height: 22vh;
   border: #DDDDDD 2px solid;
   border-radius: 8px;
-  margin-top: 10px;
+  margin: 10px 0;
 }
 .productContainer {
   display: flex;
@@ -93,6 +93,10 @@ tr{
 
 img{
   width: 30%;
+}
+
+.stillLoadedIMG{
+  height: 100%;
 }
 
 .productContainer.out-of-stock {
@@ -135,7 +139,7 @@ button:hover{
 
 select{
   width: 25%;
-  min-width: 100px;
+  min-width: 130px;
   border: none;
   border-radius: 8px;
   background: #EEEEEE;
