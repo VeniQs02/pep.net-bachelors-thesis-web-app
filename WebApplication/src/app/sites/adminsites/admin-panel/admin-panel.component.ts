@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CommonModule} from "@angular/common";
+import {CommonModule, NgOptimizedImage} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {Product} from "../../../product/product";
 import {ProductService} from "../../../product/product.service";
@@ -8,7 +8,7 @@ import {RouterLink, RouterLinkActive} from "@angular/router";
 @Component({
   selector: 'app-admin-panel',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive],
+  imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive, NgOptimizedImage],
   templateUrl: './admin-panel.component.html',
   styleUrl: './admin-panel.component.css'
 })
@@ -19,6 +19,7 @@ export class AdminPanelComponent implements OnInit {
   filteredProducts: Product[];
   selectedProduct: Product | null = null;
   ingredientsInput: string = '';
+  errorMessage: string = '';
 
   constructor(private productService: ProductService) { }
 
@@ -54,15 +55,25 @@ export class AdminPanelComponent implements OnInit {
   openEditPopup(product: Product): void {
     this.selectedProduct = {...product};
     this.ingredientsInput = this.selectedProduct.ingredients.join(', ');
+    this.errorMessage = '';
   }
 
   closeEditPopup(): void {
     this.selectedProduct = null;
     this.ingredientsInput = '';
+    this.errorMessage = '';
   }
 
   saveProduct(): void {
     if (this.selectedProduct) {
+      if (this.selectedProduct.price < 0) {
+        this.errorMessage = 'Cena nie może być mniejsza niż 0';
+        return;
+      }
+      if (this.selectedProduct.stock < 0) {
+        this.errorMessage = 'Stan magazynowy nie może być mniejszy niż 0';
+        return;
+      }
       this.selectedProduct.ingredients = this.ingredientsInput.split(',').map(ingredient => ingredient.trim());
       this.productService.updateProduct(this.selectedProduct).subscribe(response => {
         this.products = this.products.map(p => p._id === response._id ? response : p);

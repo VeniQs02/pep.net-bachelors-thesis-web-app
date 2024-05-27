@@ -37,9 +37,9 @@
             </div>
             <button (click)="addToCart(product)" [disabled]="isOutOfStock(product)">Dodaj<span class="material-symbols-outlined">shopping_cart</span></button>
           </div>
-          <img  [src]="'../../../assets/breadPictures/' + product._id + '.jpg'" [alt]="product.name">
-          <!--      IMAGE PLACEHOLDER CODE    @if (+product._id<21){} @else {-->
-          <!--            <img class="stillLoadedIMG" ngSrc="../../../assets/PEPlaceholder.PNG" alt="productImage" height="200" width="200">-->
+          @if (+product._id<21){
+            <img  [src]="'../../../assets/breadPictures/' + product._id + '.jpg'" [alt]="product.name">} @else {
+            <img class="stillLoadedIMG" ngSrc="../../../assets/PEPlaceholder.PNG" alt="productImage" height="200" width="200">}
         </div>
       </tr>
       </tbody>

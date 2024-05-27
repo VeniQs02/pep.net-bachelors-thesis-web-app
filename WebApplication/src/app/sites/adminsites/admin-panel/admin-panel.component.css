@@ -91,6 +91,10 @@ button:hover{
   border-radius: 2px;
 }
 
+.stillLoadedIMG{
+  max-width: 120px;
+}
+
 .editPopup {
   position: fixed;
   top: 50%;
@@ -98,8 +102,9 @@ button:hover{
   transform: translate(-50%, -50%);
   background: white;
   border: 1px solid #ccc;
-  padding: 20px;
+  padding: 20px 60px;
   z-index: 1000;
+  border-radius: 8px;
 }
 
 .popupContent {
@@ -109,10 +114,16 @@ button:hover{
 
 .popupContent label, .popupContent input, .popupContent button {
   margin-bottom: 10px;
+  height: 20px;
+  min-width: 150px;
+  width: auto;
 }
 
 .popupContent button {
   align-self: flex-end;
+}
+.error{
+  color: red;
 }
 
 @media screen and (max-width: 750px){

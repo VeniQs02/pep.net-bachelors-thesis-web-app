@@ -5,7 +5,7 @@
       <button routerLink="/adminMessages" routerLinkActive="active" ariaCurrentWhenActive="page">WIADOMOŚCI</button>
       <button routerLink="/adminOrders" routerLinkActive="active" ariaCurrentWhenActive="page">ZAMÓWIENIA</button>
     </div>
-    <button routerLink="/addBread" routerLinkActive="active" ariaCurrentWhenActive="page">DODAJ WYPIEK</button>
+    <button routerLink="/addBread" routerLinkActive="active" ariaCurrentWhenActive="page">DODAJ PIECZYWO</button>
 
     <div class="headerDropdownMenu">
       <form>
@@ -17,7 +17,9 @@
     <div class="adminProductsBackground">
       <div *ngIf="!products" class="loadingScreen">Ładowanie produktów...</div>
       <div *ngFor="let product of filteredProducts" class="adminProductContainer" (click)="openEditPopup(product)">
-        <img [src]="'../../../assets/breadPictures/' + product._id + '.jpg'" [alt]="product.name" >
+        @if (+product._id<21){
+          <img  [src]="'../../../assets/breadPictures/' + product._id + '.jpg'" [alt]="product.name">} @else {
+          <img class="stillLoadedIMG" ngSrc="../../../assets/PEPlaceholder.PNG" alt="productImage" height="100" width="100">}
         <p>{{ product.name }}</p>
       </div>
     </div>
@@ -37,6 +39,7 @@
       <input [(ngModel)]="ingredientsInput">
       <label>Stock</label>
       <input [(ngModel)]="selectedProduct.stock" type="number">
+      <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
       <div class="adminButtons">
         <button (click)="saveProduct()">Zapisz</button>
         <button (click)="closeEditPopup()">Anuluj</button>
