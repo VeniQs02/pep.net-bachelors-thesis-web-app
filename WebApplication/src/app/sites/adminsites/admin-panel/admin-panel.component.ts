@@ -92,7 +92,7 @@ export class AdminPanelComponent implements OnInit {
           this.selectedProduct = null;
         },
         error => {
-          this.errorMessage = 'Błąd podczas usuwania produktu.';
+          this.errorMessage = 'Błąd podczas usuwania produktu.' + error;
         }
       );
     }
