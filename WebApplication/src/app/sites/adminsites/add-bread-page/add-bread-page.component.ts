@@ -57,9 +57,6 @@ export class AddBreadPageComponent implements OnInit {
           this.sent=true;
           this.addProductForm.markAsUntouched();
           this.addProductForm.setValue({name:"", description:"", price:"", stock:"", category:"", ingredients:""})
-          setTimeout(() => {
-            this.router.navigate(['/admin']);
-          }, 7000);
         },
         error => {
           console.error('Error adding product:', error);
