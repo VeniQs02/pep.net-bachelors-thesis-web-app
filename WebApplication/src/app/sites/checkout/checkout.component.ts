@@ -54,7 +54,7 @@ export class CheckoutComponent implements OnInit{
     );
 
     this.orderService.createOrder(orderData).subscribe({
-      next: (response) => {
+      next: () => {
         this.cartService.updateCart([])
         // console.log("Order created successfully:", response);
         // alert("Order placed successfully!");
@@ -62,7 +62,7 @@ export class CheckoutComponent implements OnInit{
       },
       error: (error) => {
         // console.error("Error creating order:", error);
-        alert("There was an error placing the order. Please try again.");
+        alert("There was an error placing the order. Please try again." + error);
         this.router.navigate(['/cart']).then()
       }
     });
