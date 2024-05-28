@@ -1,5 +1,7 @@
 
 export class Order {
+  public _id: string;
+  public orderCreationDate: string;
   constructor(
     public customerName: string,
     public customerEmail: string,

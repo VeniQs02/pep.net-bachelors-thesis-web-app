@@ -1,1 +1,35 @@
-<p>messages works!</p>
+<section>
+  <div class="backgroundFill">
+    <h2>Wiadomości</h2>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    <div class="message-header">
+      <button (click)="setSortField('messageCreationDate')" class="data">Data</button>
+      <button (click)="setSortField('customerName')" class="nazwa">Nazwa nadawcy</button>
+      <button (click)="setSortField('customerEmail')" class="id">Email nadawcy</button>
+      <button>Akcje</button>
+    </div>
+    <div *ngFor="let message of sortedMessages" class="message-item">
+      <div class="data">{{message.messageCreationDate }}</div>
+      <div class="nazwa">{{ message.customerName }}</div>
+      <div class="id">{{ message.customerEmail }}</div>
+      <div class="actions">
+        <button class="show-message-btn" (click)="showMessage(message.message, message.customerName, message.customerEmail, message._id)">Pokaż Wiadomość</button>
+        <button (click)="deleteMessage(message._id)">Usuń</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup" *ngIf="popupMessage">
+    <div class="popup-content">
+      <span class="close-btn" (click)="closePopup()">&times;</span>
+      <strong><p>ID wiadomości:</p></strong>
+      {{ popupId}}
+      <strong><p>Nazwa nadawcy:</p></strong>
+      {{ popupUsername }}
+      <strong><p>Email nadawcy:</p></strong>
+      {{ popupEmail }}
+      <strong><p>Treść wiadomości:</p></strong>
+      {{ popupMessage }}
+    </div>
+  </div>
+</section>

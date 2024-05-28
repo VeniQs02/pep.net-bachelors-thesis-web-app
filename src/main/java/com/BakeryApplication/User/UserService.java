@@ -4,10 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
+
+import static java.text.SimpleDateFormat.*;
 
 @Service
 public class UserService {
@@ -28,7 +30,11 @@ public class UserService {
     }
 
     public void addUserApplyModifcations(User user){
-        user.setCreationDate(LocalDate.now());
+//        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.DEFAULT , 1);
+//        String date = dateFormat.format(new Date());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy MM d, H:mm");
+        String formattedDate = sdf.format(new Date());
+        user.setCreationDate(formattedDate);
         user.setRole("customer");
 
         BCryptPasswordEncoder bc = new BCryptPasswordEncoder();
@@ -44,7 +50,7 @@ public class UserService {
             updates.forEach((key, value) -> {
                 switch (key) {
                     case "creationDate":
-                        existingUser.setCreationDate((LocalDate) value);
+                        existingUser.setCreationDate((String) value);
                         break;
                     case "role":
                         existingUser.setRole((String) value);

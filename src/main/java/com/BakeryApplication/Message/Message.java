@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Message {
     @Id
     String _id;
+    String messageCreationDate;
     String customerName;
     String customerEmail;
     String message;

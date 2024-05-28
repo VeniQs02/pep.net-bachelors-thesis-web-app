@@ -27,7 +27,8 @@ public class MessageController {
 
     @PostMapping("/add")
     public ResponseEntity<Message> addMessage(@RequestBody Message message){
-        Message newMessage = messageService.addOrder(message);
+        messageService.applyModifications(message);
+        Message newMessage = messageService.addMessage(message);
         return new ResponseEntity<>(newMessage, HttpStatus.CREATED);
     }
 

@@ -1,10 +1,12 @@
-section{
+/* admin-panel.component.css */
+section {
   color: #18181B;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.backgroundFill{
+
+.backgroundFill {
   background: #DDDDDD;
   padding: 10px 40px 30px;
   width: 90vw;
@@ -13,32 +15,33 @@ section{
   flex-direction: column;
   align-items: center;
 }
-h2{
+
+h2 {
   font-size: 45px;
 }
-p{
+
+p {
   margin: 5px 0 10px;
 }
-.adminButtons{
+
+.adminButtons {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
 }
 
-
-/*dropdown menu*/
-#category{
+/* Dropdown menu */
+#category {
   height: 45px;
   border-radius: 8px;
   margin: 15px 0 15px 0;
   font-size: 25px;
   border: none;
   padding-left: 5px;
-
 }
 
-button{
+button {
   height: 20px;
   margin-top: 15px;
   background: #afafaf;
@@ -51,21 +54,23 @@ button{
   border: none;
   border-radius: 8px;
 }
-button:hover{
+
+button:hover {
   background: #EEEEEE;
   border: #afafaf 2px solid;
   padding: 24px 14px;
   transition: background-color 0.2s;
 }
 
-.saveButton{
+.saveButton {
   background-color: rgba(0, 128, 0, 40%);
 }
-.deleteButton{
+
+.deleteButton {
   background-color: rgba(255, 0, 0, 40%);
 }
 
-.adminProductsBackground{
+.adminProductsBackground {
   background-color: #EEEEEE;
   border-radius: 8px;
   width: 100%;
@@ -78,8 +83,6 @@ button:hover{
 .adminProductContainer {
   display: flex;
   align-items: center;
-
-
   height: 100px;
   width: 45%;
   min-height: 22vh;
@@ -88,7 +91,6 @@ button:hover{
   margin: 10px;
   background-color: #EEEEEE;
   cursor: pointer;
-
 }
 
 .adminProductContainer img {
@@ -98,7 +100,7 @@ button:hover{
   border-radius: 2px;
 }
 
-.stillLoadedIMG{
+.stillLoadedIMG {
   max-width: 120px;
 }
 
@@ -129,15 +131,16 @@ button:hover{
 .popupContent button {
   align-self: flex-end;
 }
-.error{
+
+.error {
   color: red;
 }
 
-@media screen and (max-width: 750px){
-  .adminProductContainer{
+@media screen and (max-width: 750px) {
+  .adminProductContainer {
     width: 100%;
   }
-  .adminButtons{
+  .adminButtons {
     flex-direction: column;
     gap: 5px;
   }

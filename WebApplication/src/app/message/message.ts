@@ -1,9 +1,10 @@
 export class Message{
-  public _id: String;
+  public _id: string;
+  public messageCreationDate: string;
   constructor(
-    public customerName: String,
-    public customerEmail: String,
-    public message: String
+    public customerName: string,
+    public customerEmail: string,
+    public message: string
   ) {}
 
 }

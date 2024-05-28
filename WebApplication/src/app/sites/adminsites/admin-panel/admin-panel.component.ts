@@ -1,16 +1,16 @@
-import {Component, OnInit} from '@angular/core';
-import {CommonModule, NgOptimizedImage} from "@angular/common";
-import {FormsModule} from "@angular/forms";
-import {Product} from "../../../product/product";
-import {ProductService} from "../../../product/product.service";
-import {RouterLink, RouterLinkActive} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { CommonModule, NgOptimizedImage } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { Product } from "../../../product/product";
+import { ProductService } from "../../../product/product.service";
+import { RouterLink, RouterLinkActive } from "@angular/router";
 
 @Component({
   selector: 'app-admin-panel',
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive, NgOptimizedImage],
   templateUrl: './admin-panel.component.html',
-  styleUrl: './admin-panel.component.css'
+  styleUrls: ['./admin-panel.component.css']
 })
 export class AdminPanelComponent implements OnInit {
   products: Product[];
@@ -53,7 +53,7 @@ export class AdminPanelComponent implements OnInit {
   }
 
   openEditPopup(product: Product): void {
-    this.selectedProduct = {...product};
+    this.selectedProduct = { ...product };
     this.ingredientsInput = this.selectedProduct.ingredients.join(', ');
     this.errorMessage = '';
   }
@@ -85,16 +85,19 @@ export class AdminPanelComponent implements OnInit {
 
   deleteProduct(): void {
     if (this.selectedProduct) {
-      this.productService.deleteProduct(this.selectedProduct._id).subscribe(
-        () => {
-          this.products = this.products.filter(p => p._id !== this.selectedProduct!._id);
-          this.filteredProducts = this.products.filter(product => product.category === this.selectedProduct!.category);
-          this.selectedProduct = null;
-        },
-        error => {
-          this.errorMessage = 'Błąd podczas usuwania produktu.' + error;
-        }
-      );
+      const confirmation = window.confirm('Czy na pewno chcesz usunąć ten produkt?');
+      if (confirmation) {
+        this.productService.deleteProduct(this.selectedProduct._id).subscribe(
+          () => {
+            this.products = this.products.filter(p => p._id !== this.selectedProduct!._id);
+            this.filterProducts();
+            this.selectedProduct = null;
+          },
+          error => {
+            this.errorMessage = 'Błąd podczas usuwania produktu.' + error;
+          }
+        );
+      }
     }
   }
 }

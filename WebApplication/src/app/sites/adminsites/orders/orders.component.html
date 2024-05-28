@@ -1,1 +1,41 @@
-<p>orders works!</p>
+<section>
+  <div class="backgroundFill">
+    <h2>Zamówienia</h2>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    <div class="order-header">
+      <button (click)="setSortField('orderCreationDate')" class="date">Data</button>
+      <button (click)="setSortField('customerName')" class="name">Nazwa Klienta</button>
+      <button (click)="setSortField('customerEmail')" class="email">Email Klienta</button>
+      <button>Akcje</button>
+    </div>
+    <div *ngFor="let order of sortedOrders" class="order-item">
+      <div class="date">{{ order.orderCreationDate }}</div>
+      <div class="name">{{ order.customerName }}</div>
+      <div class="email">{{ order.customerEmail }}</div>
+      <div class="actions">
+        <button class="show-order-btn" (click)="showOrder(order)">Pokaż Zamówienie</button>
+        <button (click)="deleteOrder(order._id)">Usuń</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup" *ngIf="popupOrder">
+    <div class="popup-content">
+      <span class="close-btn" (click)="closePopup()">&times;</span>
+      <strong><p>Nazwa Klienta:</p></strong>
+      {{ popupOrder.customerName }}
+      <strong><p>Email Klienta:</p></strong>
+      {{ popupOrder.customerEmail }}
+      <strong><p>Adres Klienta:</p></strong>
+      {{ popupOrder.customerAddress }}
+      <strong><p>Łączna Cena:</p></strong>
+      {{ popupOrder.cartTotalPrice | number:'1.2-2'  }} zł
+      <strong><p>Elementy Koszyka:</p></strong>
+      <ul>
+        <li *ngFor="let item of popupOrderProducts">
+          {{ item.productName }}, Ilość: {{ item.productQuantity }}, ID Produktu: {{ item.productId }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

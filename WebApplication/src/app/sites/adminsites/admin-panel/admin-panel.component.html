@@ -17,13 +17,13 @@
     <div class="adminProductsBackground">
       <div *ngIf="!products" class="loadingScreen">Ładowanie produktów...</div>
       <div *ngFor="let product of filteredProducts" class="adminProductContainer" (click)="openEditPopup(product)">
-        @if (+product._id<21){
-          <img  [src]="'../../../assets/breadPictures/' + product._id + '.jpg'" [alt]="product.name">} @else {
-          <img class="stillLoadedIMG" ngSrc="../../../assets/PEPlaceholder.PNG" alt="productImage" height="100" width="100">}
+        <img [src]="'../../../assets/breadPictures/' + product._id + '.jpg'" [alt]="product.name" *ngIf="+product._id < 21; else placeholderImg">
+        <ng-template #placeholderImg>
+          <img class="stillLoadedIMG" ngSrc="../../../assets/PEPlaceholder.PNG" alt="productImage" height="100" width="100">
+        </ng-template>
         <p>{{ product.name }}</p>
       </div>
     </div>
-
   </div>
 
   <div *ngIf="selectedProduct" class="editPopup">

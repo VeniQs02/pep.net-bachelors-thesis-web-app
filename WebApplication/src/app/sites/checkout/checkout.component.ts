@@ -55,12 +55,13 @@ export class CheckoutComponent implements OnInit{
 
     this.orderService.createOrder(orderData).subscribe({
       next: (response) => {
-        console.log("Order created successfully:", response);
-        alert("Order placed successfully!");
+        this.cartService.updateCart([])
+        // console.log("Order created successfully:", response);
+        // alert("Order placed successfully!");
         this.router.navigate(['/thankYou']).then()
       },
       error: (error) => {
-        console.error("Error creating order:", error);
+        // console.error("Error creating order:", error);
         alert("There was an error placing the order. Please try again.");
         this.router.navigate(['/cart']).then()
       }

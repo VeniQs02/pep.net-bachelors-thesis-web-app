@@ -30,6 +30,7 @@ public class OrderController {
 
     @PostMapping("/add")
     public ResponseEntity<Order> addOrder(@RequestBody Order order){
+        orderService.applyOrderModifications(order);
         Order newOrder = orderService.addOrder(order);
         return new ResponseEntity<>(newOrder, HttpStatus.CREATED);
     }
