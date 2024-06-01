@@ -1,3 +1,4 @@
+<!-- navbar.component.html -->
 <nav>
   <h1>
     <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">pep.net</a>
@@ -8,13 +9,16 @@
     <li><a class="navButtons" routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">Kontakt</a></li>
   </ul>
   <div class="loginButton" [class]="isCollapsed ? 'collapsed' : 'expanded'">
-    <a routerLink="/cart" routerLinkActive="active" ariaCurrentWhenActive="page" style="width: auto">Koszyk @if(getCartItemsNumber()){{{getCartItemsNumber()}}}
+    <a routerLink="/cart" routerLinkActive="active" ariaCurrentWhenActive="page" style="width: auto">
+      Koszyk {{ getCartItemsNumber() }}
     </a>
-    <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Zaloguj</a>
+    <a href="javascript:void(0);" routerLinkActive="active" id="loginButton" (click)="handleLoginButtonClick()">
+      {{ isLoggedIn ? 'Wyloguj się' : 'Zaloguj się' }}
+    </a>
   </div>
   <div class="arrow-visible-below-570">
     <a href="javascript:void(0);" (click)="toggleMenu()">
-      <img src="assets/arrowIcon.svg" alt="burgerMenuIcon" width="50px" [class.rotated]="!isCollapsed" class="arrow">
+      <img src="assets/arrowIcon.svg" alt="burgerMenuIcon" width="50px" [class]="!isCollapsed ? 'rotated' : ''" class="arrow">
     </a>
   </div>
 </nav>

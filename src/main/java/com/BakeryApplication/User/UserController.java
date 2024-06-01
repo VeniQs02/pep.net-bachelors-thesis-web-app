@@ -1,8 +1,11 @@
 package com.BakeryApplication.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.config.annotation.rsocket.RSocketSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -47,6 +50,26 @@ public class UserController {
     public ResponseEntity<?> deleteUser(@PathVariable String _id){
         userService.deleteUser(_id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<?> loginUser(@RequestBody Map<String, String> credentials){
+        BCryptPasswordEncoder bc = new BCryptPasswordEncoder();
+
+        String name = credentials.get("name");
+        String password = credentials.get("password");
+
+        User user = userService.getUserByName(name);
+
+        if(user != null){
+            if(bc.matches(password, user.password)){
+                return new ResponseEntity<>(user, HttpStatus.OK);
+            }else{
+                return new ResponseEntity<>("Wrong credentials!", HttpStatus.UNAUTHORIZED);
+            }
+        }else{
+            return new ResponseEntity<>("User not found!", HttpStatus.BAD_REQUEST);
+        }
     }
 
 }

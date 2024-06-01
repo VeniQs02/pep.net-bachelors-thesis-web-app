@@ -9,10 +9,10 @@ import { Product } from '../../../product/product';
   selector: 'app-orders',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.css']
+  templateUrl: './orders-page.component.html',
+  styleUrls: ['./orders-page.component.css']
 })
-export class OrdersComponent implements OnInit {
+export class OrdersPageComponent implements OnInit {
   orders: Order[] = [];
   sortedOrders: Order[] = [];
   products: Product[] = [];

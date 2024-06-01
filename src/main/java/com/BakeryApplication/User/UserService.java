@@ -27,8 +27,6 @@ public class UserService {
     }
 
     public void addUserApplyModifcations(User user){
-//        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.DEFAULT , 1);
-//        String date = dateFormat.format(new Date());
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy MM d, H:mm");
         String formattedDate = sdf.format(new Date());
         user.setCreationDate(formattedDate);
@@ -80,4 +78,9 @@ public class UserService {
     public void deleteUser(String _id){
         userRepository.deleteUserBy_id(_id);
     }
+
+    public User getUserByName(String username){
+        return userRepository.getUserByName(username);
+    }
+
 }
