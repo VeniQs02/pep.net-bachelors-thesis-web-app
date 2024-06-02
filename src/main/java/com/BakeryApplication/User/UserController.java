@@ -81,4 +81,19 @@ public class UserController {
         }
     }
 
+    @PostMapping("/verify")
+    public ResponseEntity<?> verifyToken(@RequestBody Map<String, String> requestBody) {
+        String token = requestBody.get("token");
+        if(token!=null){
+            if(userService.validateToken(token)){
+                return new ResponseEntity<>(true, HttpStatus.OK);
+            } else{
+                System.out.println("Token not authorized");
+                return new ResponseEntity<>(false, HttpStatus.UNAUTHORIZED);
+            }
+        }else{
+            System.out.println("Token not found");
+            return new ResponseEntity<>(false, HttpStatus.NOT_FOUND);
+        }
+    }
 }
