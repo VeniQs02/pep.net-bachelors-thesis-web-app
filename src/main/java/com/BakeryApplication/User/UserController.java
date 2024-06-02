@@ -57,19 +57,19 @@ public class UserController {
 
         String name = credentials.get("name");
         String password = credentials.get("password");
-        System.out.println("Credentials acquired");
+//        System.out.println("Credentials acquired");
 
 
         User user = userService.getUserByName(name);
-        System.out.println("User acquired");
+//        System.out.println("User acquired");
         if(user != null){
-            System.out.println("User exists");
+//            System.out.println("User exists");
             if(bc.matches(password, user.getPassword())){
-                System.out.println("Passwords match");
+//                System.out.println("Passwords match");
                 String token = userService.generateToken(user);
                 Map<String, String> response = new HashMap<>();
                 response.put("token", token);
-                System.out.println("Token generated \n\n");
+//                System.out.println("Token generated \n\n");
                 return new ResponseEntity<>(response, HttpStatus.OK);
             }else{
                 System.out.println("Passwords do not match\n\n");
@@ -89,7 +89,7 @@ public class UserController {
                 return new ResponseEntity<>(true, HttpStatus.OK);
             } else{
                 System.out.println("Token not authorized");
-                return new ResponseEntity<>(false, HttpStatus.UNAUTHORIZED);
+                return new ResponseEntity<>(false, HttpStatus.NOT_ACCEPTABLE);
             }
         }else{
             System.out.println("Token not found");
