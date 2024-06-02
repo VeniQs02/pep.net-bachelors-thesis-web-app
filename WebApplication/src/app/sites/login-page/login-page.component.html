@@ -1,1 +1,17 @@
-<p>login works!</p>
+<section>
+  <div class="backgroundFill">
+    <h2>Zaloguj się</h2>
+
+    <form [formGroup]="profileForm" (ngSubmit)="send()">
+      <label for="name">Name</label>
+      <input id="name" formControlName="name" type="text">
+
+      <label for="password">Password</label>
+      <input id="password" formControlName="password" type="password">
+
+      <button type="submit">Login</button>
+    </form>
+    <p *ngIf="error" class="error">{{ error }}</p>
+    <p *ngIf="isLoggedIn" class="verified">Pomyślnie zalogowano!</p>
+  </div>
+</section>

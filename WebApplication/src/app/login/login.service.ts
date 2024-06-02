@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  private apiUrl = 'http://localhost:8080/api/user';
+  private apiUrl = 'http://localhost:8080/api/users';
   private loggedIn = new BehaviorSubject<boolean>(this.isLoggedIn());
 
   loginStateChange = this.loggedIn.asObservable();
@@ -14,7 +14,13 @@ export class LoginService {
   constructor(private http: HttpClient) {}
 
   login(credentials: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, credentials);
+    const basicAuth = 'Basic ' + btoa('adminadmin:123321');
+    const headers = new HttpHeaders({
+      'Authorization': basicAuth,
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.post(`${this.apiUrl}/login`, credentials, { headers });
   }
 
   setToken(token: string): void {
@@ -32,7 +38,7 @@ export class LoginService {
 
   logout(): void {
     localStorage.removeItem('jwtToken');
-    console.log("Loggedout");
+    console.log("Logged out");
     this.loggedIn.next(false);
   }
 }

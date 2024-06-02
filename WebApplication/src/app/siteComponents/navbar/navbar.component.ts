@@ -2,17 +2,19 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CartService } from '../../cart/cart.service';
 import { LoginService } from '../../login/login.service';
+import {CommonModule} from "@angular/common";
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, CommonModule],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
   isCollapsed: boolean = true;
   isLoggedIn: boolean = false;
+  isLoginPage: boolean = false;
 
   constructor(
     private cartService: CartService,
@@ -23,9 +25,15 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateLoginStatus();
+    this.checkIsLoginPage();
 
     this.loginService.loginStateChange.subscribe(() => {
       this.updateLoginStatus();
+      this.checkIsLoginPage();
+    });
+
+    this.router.events.subscribe(() => {
+      this.checkIsLoginPage();
     });
 
     this.checkScreenWidth();
@@ -40,7 +48,7 @@ export class NavbarComponent implements OnInit {
 
   checkScreenWidth(): void {
     const screenWidth = window.innerWidth;
-    this.isCollapsed = screenWidth < 600;
+    this.isCollapsed = screenWidth < 650;
   }
 
   getCartItemsNumber(): number {
@@ -59,5 +67,9 @@ export class NavbarComponent implements OnInit {
   updateLoginStatus(): void {
     this.isLoggedIn = this.loginService.isLoggedIn();
     this.cdRef.detectChanges();  // Manually trigger change detection
+  }
+
+  checkIsLoginPage(): void {
+    this.isLoginPage = this.router.url === '/login';
   }
 }

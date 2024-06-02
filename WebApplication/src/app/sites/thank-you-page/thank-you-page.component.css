@@ -25,7 +25,7 @@ img{
   box-shadow: #eeeeee 10px 10px 5px, #eeeeee -10px -10px 5px, #eeeeee -10px 10px 5px, #eeeeee 10px -10px 5px;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 650px){
   h2{
     font-size: 30px;
   }

@@ -8,11 +8,11 @@
     <li><a class="navButtons" routerLink="/help" routerLinkActive="active" ariaCurrentWhenActive="page">O nas</a></li>
     <li><a class="navButtons" routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">Kontakt</a></li>
   </ul>
-  <div class="loginButton" [class]="isCollapsed ? 'collapsed' : 'expanded'">
+  <div class="loginButton" [class]="isCollapsed ? 'collapsed' : 'expanded'" >
     <a routerLink="/cart" routerLinkActive="active" ariaCurrentWhenActive="page" style="width: auto">
       Koszyk {{ getCartItemsNumber() }}
     </a>
-    <a href="javascript:void(0);" routerLinkActive="active" id="loginButton" (click)="handleLoginButtonClick()">
+    <a href="javascript:void(0);" routerLinkActive="active" id="loginButton" (click)="handleLoginButtonClick()" *ngIf="!isLoginPage">
       {{ isLoggedIn ? 'Wyloguj się' : 'Zaloguj się' }}
     </a>
   </div>

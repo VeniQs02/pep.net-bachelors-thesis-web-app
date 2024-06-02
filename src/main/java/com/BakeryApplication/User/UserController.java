@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -29,7 +30,7 @@ public class UserController {
 
     @PostMapping("/add")
     public ResponseEntity<User> addUser(@RequestBody User user){
-        userService.addUserApplyModifcations(user);
+        userService.addUserApplyModifications(user);
         User newUser = userService.addUser(user);
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
@@ -56,16 +57,26 @@ public class UserController {
 
         String name = credentials.get("name");
         String password = credentials.get("password");
+        System.out.println("Credentials acquired");
+
 
         User user = userService.getUserByName(name);
-
+        System.out.println("User acquired");
         if(user != null){
-            if(bc.matches(password, user.password)){
-                return new ResponseEntity<>(user, HttpStatus.OK);
+            System.out.println("User exists");
+            if(bc.matches(password, user.getPassword())){
+                System.out.println("Passwords match");
+                String token = userService.generateToken(user);
+                Map<String, String> response = new HashMap<>();
+                response.put("token", token);
+                System.out.println("Token generated \n\n");
+                return new ResponseEntity<>(response, HttpStatus.OK);
             }else{
+                System.out.println("Passwords do not match\n\n");
                 return new ResponseEntity<>("Wrong credentials!", HttpStatus.UNAUTHORIZED);
             }
         }else{
+            System.out.println("User doesnt exist\n\n");
             return new ResponseEntity<>("User not found!", HttpStatus.BAD_REQUEST);
         }
     }

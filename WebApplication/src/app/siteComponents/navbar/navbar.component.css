@@ -61,10 +61,11 @@ a{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .loginButton a{
-  width: 60px;
+  width: 100px;
   height: 21px;
   /*background: #afafaf ;*/
   border-radius: 8px;
@@ -89,7 +90,7 @@ a{
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
   .arrow-visible-below-570{
     display: block;
   }

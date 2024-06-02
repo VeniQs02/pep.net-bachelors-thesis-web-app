@@ -5,7 +5,7 @@
   <p>
     <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">© pep.net</a>
   </p>
-  <p class="visible">
-    <a routerLink="/admin" routerLinkActive="active" ariaCurrentWhenActive="page">ADMIN PANEL</a>
+  <p [class]="isLoggedIn? 'visible': 'invisible'">
+    <a routerLink="/admin" routerLinkActive="active" ariaCurrentWhenActive="page" id="adminPanel">ADMIN PANEL</a>
   </p>
 </footer>
