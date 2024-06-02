@@ -1,7 +1,6 @@
 package com.BakeryApplication.User;
 
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -18,15 +16,14 @@ import java.util.*;
 @Service
 public class UserService {
 
-    private String SECRET_KEY_STRING;
-    private SecretKey SECRET_KEY;
+    private final SecretKey SECRET_KEY;
 
     @Autowired
     private UserRepository userRepository;
 
 
     UserService(){
-        SECRET_KEY_STRING = "aNIABNCIUsaddasdB123AFS1293871298378AJKSNDIJAISBDJasdasd";
+        String SECRET_KEY_STRING = "aNIABNCIUsaddasdB123AFS1293871298378AJKSNDIJAISBDJasdasd";
         SECRET_KEY = Keys.hmacShaKeyFor(SECRET_KEY_STRING.getBytes(StandardCharsets.UTF_8));
     }
 
