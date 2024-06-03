@@ -11,6 +11,8 @@ section{
   border-radius: 8px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 0 10px rgba(175, 175, 175, 1);
+
 }
 h2{
   margin-left: 50px;

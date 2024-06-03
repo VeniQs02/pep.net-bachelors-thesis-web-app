@@ -4,6 +4,7 @@ section{
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 .backgroundFill{
   background: #DDDDDD;
@@ -13,6 +14,8 @@ section{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  box-shadow: 0 0 10px rgba(175, 175, 175, 1);
+
 }
 h2{
   font-size: 45px;

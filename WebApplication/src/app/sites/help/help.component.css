@@ -10,6 +10,8 @@ section{
   background: #DDDDDD;
   padding: 10px 20px;
   border-radius: 8px;
+  box-shadow: 0 0 10px rgba(175, 175, 175, 1);
+
 }
 .backgroundFill div{
   display: flex;

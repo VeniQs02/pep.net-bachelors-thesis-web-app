@@ -1,27 +1,30 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <section>
-  <div class="backgroundFill">
-    <h2>Panel zarządzania sklepem</h2>
-    <div class="adminButtons">
-      <button routerLink="/adminMessages" routerLinkActive="active" ariaCurrentWhenActive="page">WIADOMOŚCI</button>
-      <button routerLink="/adminOrders" routerLinkActive="active" ariaCurrentWhenActive="page">ZAMÓWIENIA</button>
-    </div>
-    <button routerLink="/addBread" routerLinkActive="active" ariaCurrentWhenActive="page">DODAJ PIECZYWO</button>
+  <div class="section-wrapper">
+    <div class="backgroundFill">
+      <h2>Panel zarządzania sklepem</h2>
+      <div class="adminButtons">
+        <button routerLink="/adminMessages" routerLinkActive="active" ariaCurrentWhenActive="page">WIADOMOŚCI<span class="material-symbols-outlined symbol">mail</span></button>
+        <button routerLink="/adminOrders" routerLinkActive="active" ariaCurrentWhenActive="page">ZAMÓWIENIA<span class="material-symbols-outlined symbol">order_approve</span></button>
+      </div>
+      <button routerLink="/addBread" routerLinkActive="active" ariaCurrentWhenActive="page">DODAJ PIECZYWO <span class="material-symbols-outlined symbol">add</span></button>
 
-    <div class="headerDropdownMenu">
-      <form>
-        <select id="category" name="category" #categorySelected (change)="onCategoryChange(categorySelected.value)">
-          <option *ngFor="let category of uniqueCategories" [value]="category">{{ category }}</option>
-        </select>
-      </form>
-    </div>
-    <div class="adminProductsBackground">
-      <div *ngIf="!products" class="loadingScreen">Ładowanie produktów...</div>
-      <div *ngFor="let product of filteredProducts" class="adminProductContainer" (click)="openEditPopup(product)">
-        <img [src]="'../../../assets/breadPictures/' + product._id + '.jpg'" [alt]="product.name" *ngIf="+product._id < 21; else placeholderImg">
-        <ng-template #placeholderImg>
-          <img class="stillLoadedIMG" ngSrc="../../../assets/PEPlaceholder.PNG" alt="productImage" height="100" width="100">
-        </ng-template>
-        <p>{{ product.name }}</p>
+      <div class="headerDropdownMenu">
+        <form>
+          <select id="category" name="category" #categorySelected (change)="onCategoryChange(categorySelected.value)">
+            <option *ngFor="let category of uniqueCategories" [value]="category">{{ category }}</option>
+          </select>
+        </form>
+      </div>
+      <div class="adminProductsBackground">
+        <div *ngIf="!products" class="loadingScreen">Ładowanie produktów...</div>
+        <div *ngFor="let product of filteredProducts" class="adminProductContainer" (click)="openEditPopup(product)">
+          <img [src]="'../../../assets/breadPictures/' + product._id + '.jpg'" [alt]="product.name" *ngIf="+product._id < 21; else placeholderImg">
+          <ng-template #placeholderImg>
+            <img class="stillLoadedIMG" ngSrc="../../../assets/PEPlaceholder.PNG" alt="productImage" height="100" width="100">
+          </ng-template>
+          <p>{{ product.name }}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -41,9 +44,9 @@
       <input [(ngModel)]="selectedProduct.stock" type="number">
       <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
       <div class="adminButtons">
-        <button class="saveButton" (click)="saveProduct()">Zapisz</button>
-        <button (click)="closeEditPopup()">Anuluj</button>
-        <button class="deleteButton" (click)="deleteProduct()">Usuń</button>
+        <button class="saveButton" (click)="saveProduct()">Zapisz <span class="material-symbols-outlined symbol">check</span></button>
+        <button (click)="closeEditPopup()">Anuluj <span class="material-symbols-outlined symbol">close</span></button>
+        <button class="deleteButton" (click)="deleteProduct()">Usuń <span class="material-symbols-outlined symbol">delete</span></button>
       </div>
     </div>
   </div>
