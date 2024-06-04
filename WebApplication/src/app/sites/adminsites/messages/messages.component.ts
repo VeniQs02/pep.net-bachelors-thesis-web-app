@@ -42,6 +42,8 @@ export class MessagesComponent implements OnInit {
   }
 
   sortMessages(): void {
+    console.log("Messages before sort:", this.messages.length);
+
     this.sortedMessages = this.messages.sort((a, b) => {
       let compare = 0;
       if (a[this.sortField] > b[this.sortField]) {
@@ -49,6 +51,8 @@ export class MessagesComponent implements OnInit {
       } else if (a[this.sortField] < b[this.sortField]) {
         compare = -1;
       }
+      console.log("Messages after sort:", this.sortedMessages.length);
+
       return this.sortDirection === 'asc' ? compare : -compare;
     });
   }
