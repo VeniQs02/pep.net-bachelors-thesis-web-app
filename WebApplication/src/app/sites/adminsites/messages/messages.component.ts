@@ -32,7 +32,6 @@ export class MessagesComponent implements OnInit {
     this.messageService.getMessages().subscribe(
       data => {
         this.messages = data;
-        console.log(data)
         this.sortMessages();
       },
       error => {
@@ -51,8 +50,6 @@ export class MessagesComponent implements OnInit {
       } else if (a[this.sortField] < b[this.sortField]) {
         compare = -1;
       }
-      console.log("Messages after sort:", this.sortedMessages.length);
-
       return this.sortDirection === 'asc' ? compare : -compare;
     });
   }

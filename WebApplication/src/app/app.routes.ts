@@ -6,7 +6,6 @@ import {ContactComponent} from "./sites/contact/contact.component";
 import {HelpComponent} from "./sites/help/help.component";
 import {SiteNotFoundComponent} from "./sites/site-not-found/site-not-found.component";
 import {LoginPageComponent} from "./sites/login-page/login-page.component";
-import {RegisterPageComponent} from "./sites/register/register-page.component";
 import {CartComponent} from "./sites/cart/cart.component";
 import {CheckoutComponent} from "./sites/checkout/checkout.component";
 import {ThankYouPageComponent} from "./sites/thank-you-page/thank-you-page.component";
@@ -28,8 +27,6 @@ export const routes: Routes = [
     path: 'help', component: HelpComponent,
   }, {
     path: 'login', component: LoginPageComponent,
-  }, {
-    path: 'register', component: RegisterPageComponent,
   }, {
     path: 'cart', component: CartComponent,
   }, {
