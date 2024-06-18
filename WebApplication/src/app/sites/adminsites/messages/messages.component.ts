@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'; // Import FormsModule
 import { MessageService } from '../../../message/message.service';
 import { Message } from '../../../message/message';
 
 @Component({
   selector: 'app-messages',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule], // Add FormsModule here
   templateUrl: './messages.component.html',
   styleUrls: ['./messages.component.css']
 })
@@ -16,11 +17,11 @@ export class MessagesComponent implements OnInit {
   sortField: keyof Message = 'messageCreationDate';
   sortDirection: string = 'asc';
   errorMessage: string = '';
+  searchTerm: string = '';
   popupMessage: string | null = null;
   popupUsername: string | null = null;
   popupEmail: string | null = null;
   popupId: string | null = null;
-
 
   constructor(private messageService: MessageService) { }
 
@@ -41,8 +42,6 @@ export class MessagesComponent implements OnInit {
   }
 
   sortMessages(): void {
-    console.log("Messages before sort:", this.messages.length);
-
     this.sortedMessages = this.messages.sort((a, b) => {
       let compare = 0;
       if (a[this.sortField] > b[this.sortField]) {
@@ -52,6 +51,7 @@ export class MessagesComponent implements OnInit {
       }
       return this.sortDirection === 'asc' ? compare : -compare;
     });
+    this.filterMessages();
   }
 
   setSortField(field: keyof Message): void {
@@ -62,6 +62,16 @@ export class MessagesComponent implements OnInit {
       this.sortDirection = 'asc';
     }
     this.sortMessages();
+  }
+
+  filterMessages(): void {
+    if (this.searchTerm.trim()) {
+      this.sortedMessages = this.messages.filter(message =>
+        message.customerName.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    } else {
+      this.sortedMessages = [...this.messages];
+    }
   }
 
   deleteMessage(id: string): void {
@@ -86,12 +96,10 @@ export class MessagesComponent implements OnInit {
     this.popupId = Id;
   }
 
-
   closePopup(): void {
     this.popupMessage = null;
     this.popupUsername = null;
     this.popupEmail = null;
     this.popupId = null;
   }
-
 }

@@ -1,7 +1,10 @@
 <section>
   <div class="backgroundFill">
-    <h2>Zamówienia</h2>
-    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    <span>
+      <h2>Zamówienia</h2>
+      <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+      <input type="text" placeholder="Szukaj po nazwie klienta" [(ngModel)]="searchTerm" (input)="filterOrders()" />
+    </span>
     <div class="order-header">
       <button (click)="setSortField('orderCreationDate')" class="date">Data</button>
       <button (click)="setSortField('customerName')" class="name">Nazwa Klienta</button>

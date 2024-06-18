@@ -40,11 +40,21 @@ h2 {
   background-color: #afafaf;
 }
 
+input{
+  border-radius: 8px;
+  min-height: 25px;
+  margin-bottom: 10px;
+  padding: 0 10px 0 10px;
+}
 
+span{
+  background: #dddddd;
+}
 
 div div {
   background-color: #EEEEEE;
 }
+
 button{
   max-height: 40px;
 }
@@ -121,3 +131,5 @@ p{
     display: none;
   }
 }
+
+

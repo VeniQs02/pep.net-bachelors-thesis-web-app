@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'; // Import FormsModule
 import { OrderService } from '../../../order/order.service';
 import { Order } from '../../../order/order';
 import { ProductService } from '../../../product/product.service';
@@ -8,7 +9,7 @@ import { Product } from '../../../product/product';
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule], // Add FormsModule here
   templateUrl: './orders-page.component.html',
   styleUrls: ['./orders-page.component.css']
 })
@@ -19,6 +20,7 @@ export class OrdersPageComponent implements OnInit {
   sortField: keyof Order = 'orderCreationDate';
   sortDirection: string = 'asc';
   errorMessage: string = '';
+  searchTerm: string = ''; // Add searchTerm property
   popupOrder: Order | null = null;
   popupOrderProducts: { productName: string; productId: string; productQuantity: number }[] = [];
 
@@ -62,6 +64,7 @@ export class OrdersPageComponent implements OnInit {
       }
       return this.sortDirection === 'asc' ? compare : -compare;
     });
+    this.filterOrders(); // Call filterOrders after sorting
   }
 
   setSortField(field: keyof Order): void {
@@ -72,6 +75,16 @@ export class OrdersPageComponent implements OnInit {
       this.sortDirection = 'asc';
     }
     this.sortOrders();
+  }
+
+  filterOrders(): void {
+    if (this.searchTerm.trim()) {
+      this.sortedOrders = this.orders.filter(order =>
+        order.customerName.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    } else {
+      this.sortedOrders = [...this.orders];
+    }
   }
 
   deleteOrder(id: string): void {

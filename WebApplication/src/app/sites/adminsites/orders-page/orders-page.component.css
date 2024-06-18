@@ -90,6 +90,13 @@ p {
   }
 }
 
+input{
+  border-radius: 8px;
+  min-height: 25px;
+  margin-bottom: 10px;
+  padding: 0 10px 0 10px;
+}
+
 .popup {
   position: fixed;
   top: 0;

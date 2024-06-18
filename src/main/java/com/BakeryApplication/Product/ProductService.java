@@ -15,12 +15,15 @@ public class ProductService {
     public List<Product> allProducts(){
         return productRepository.findAll();
     }
+
     public Optional<Product> getProductById(String _id){
         return productRepository.findById(_id);
     }
+
     public Product addProduct(Product product){
         return productRepository.save(product);
     }
+
     public Product updateProduct(String _id, Product updatedProduct) {
         Optional<Product> existingProductOptional = productRepository.findById(_id);
         if (existingProductOptional.isPresent()) {
