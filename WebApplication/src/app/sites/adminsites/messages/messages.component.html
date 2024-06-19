@@ -3,6 +3,9 @@
     <span class="headerPart">
       <h2>Wiadomości</h2>
       <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+      <div style="visibility: hidden">.</div>
+      <div style="visibility: hidden">.</div>
+      <div style="visibility: hidden">.</div>
       <input type="text" placeholder="Search by Customer Name" [(ngModel)]="searchTerm" (input)="filterMessages()">
     </span>
     <div class="message-header">

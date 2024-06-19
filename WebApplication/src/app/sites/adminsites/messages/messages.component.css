@@ -10,7 +10,7 @@ section {
 }
 
 h2 {
-  margin-bottom: 45px;
+  margin-bottom: 20px;
 }
 .backgroundFill {
   background: #DDDDDD;
@@ -43,12 +43,14 @@ h2 {
 input{
   border-radius: 8px;
   min-height: 25px;
-  margin-bottom: 10px;
   padding: 0 10px 0 10px;
 }
 
 span{
-  background: #dddddd;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 
 div div {
@@ -129,6 +131,9 @@ p{
 @media screen and (max-width: 550px) {
   .nazwa{
     display: none;
+  }
+  input{
+    max-width: 42px;
   }
 }
 

@@ -3,6 +3,9 @@
     <span>
       <h2>Zamówienia</h2>
       <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+      <div style="visibility: hidden">.</div>
+      <div style="visibility: hidden">.</div>
+      <div style="visibility: hidden">.</div>
       <input type="text" placeholder="Szukaj po nazwie klienta" [(ngModel)]="searchTerm" (input)="filterOrders()" />
     </span>
     <div class="order-header">
